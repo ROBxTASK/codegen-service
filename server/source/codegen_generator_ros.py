@@ -117,7 +117,14 @@ class ROSGeneratorClass():
 		self.c.write('result = send_ROSActionRequest_WithGoal(\''+ skillName +'\', rxt_skills_' + assetName + '.msg.'+ skillName +'Action, rxt_skills_' + assetName + '.msg.'+ skillName +'Goal('+ slotName +'=b\''+ slotValue +'\'))\n')
 		self.c.write('if result:\n')
 		self.c.indent()
-		self.c.write('print(\"Result was: \" + str(result.isOK))\n')
+		returnName = 'isOK'
+		if skillName == 'GetData':
+			returnName = 'data'
+		elif skillName == 'WaitForUserInput':
+			returnName = 'returnMessage'
+		else:
+			returnName = 'isOK'
+		self.c.write('print(\"Result was: \" + str(result.'+returnName+'))\n')
 		self.c.dedent()	
 		self.c.write('print (\'----------------------------------\')\n\n')
 
