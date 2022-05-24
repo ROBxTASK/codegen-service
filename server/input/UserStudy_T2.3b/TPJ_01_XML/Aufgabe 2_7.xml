@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="!j}kNKVO6+z0O,YZMBDv" x="46" y="31">
+      <value name="asset">
+         <block type="Text" id="=|y?a-kf#e^ak^LZJd|#" editable="false">
+            <field name="text">Camera system</field>
+         </block>
+      </value>
+      <next>
+         <block type="DetectObject" id="xz@56sftX@h^:W:K-x7t">
+            <value name="object">
+               <block type="Text" id="ERJOGz@]HiGX[s*ljubv">
+                  <field name="text">Brille</field>
+               </block>
+            </value>
+            <next>
+               <block type="SendMessage" id="TlU4jrXq7b?,,ve-X}hA">
+                  <field name="messageType">MQTT</field>
+                  <value name="messageContent">
+                     <block type="Text" id="KC`_jwtpI7R,s`}2b.V%">
+                        <field name="text">Brille gefunden</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="TeachingObjectRecognition" id="o|ZnrcThnVrNKz;*Bl[w">
+                        <value name="objData">
+                           <block type="Text" id="6`3%c4cac~O3f+JLDR?F">
+                              <field name="text">geographische Daten</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="6VMl~4TXotTZKVl;uI|w" x="46" y="176">
+      <value name="asset">
+         <block type="Text" id="54OYSFj*LnYmU|FWZ/iw" editable="false">
+            <field name="text">Q.bo One</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id=",QPsiNZ}=Dn1bo:j8{e[">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="kASlHRLqbbXWO8]HA=n=">
+                  <field name="text">Brille gefunden</field>
+               </block>
+            </value>
+            <next>
+               <block type="VoiceOutput" id="1Kn{0?X#W$8=,;Db-9`p">
+                  <value name="outputMessage">
+                     <block type="Text" id="}9]P+3E)G?):([K)g]-7">
+                        <field name="text">Brille gefuuuuunden!</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="@IYuZf-*4,hn?u;7~jei" x="44" y="288">
+      <value name="asset">
+         <block type="Text" id="vqMERZD]5jVD;Z}v4)FM" editable="false">
+            <field name="text">MiR 100 Mobile Platform</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="GG|Jo?)tfK1RT=cKlk}n">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="}6jBL=Zt5R(juB+ssMC,">
+                  <field name="text">Brille gefunden</field>
+               </block>
+            </value>
+            <next>
+               <block type="MoveToLocation" id="oL|P1Jv?;I7#jV10BHJi">
+                  <value name="location">
+                     <block type="Text" id="}NT^}#7fQes`2Vg6p7zd">
+                        <field name="text">geographische Daten</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="SendMessage" id="n7X`hxDlJ,qrnQnR{b[+">
+                        <field name="messageType">MQTT</field>
+                        <value name="messageContent">
+                           <block type="Text" id=".3-AmeO!|WB38)M{3Mrr">
+                              <field name="text">steh scho da</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="wz9Qg9O}HfCkk9BVx~-P" x="40" y="457">
+      <value name="asset">
+         <block type="Text" id="PmF8|RoPX1.[O%=U#W_5" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="z1|h;%X^2-aP2yjoi|SN">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="lNq(#oAf#~gUC|R16rG6">
+                  <field name="text">steh scho da</field>
+               </block>
+            </value>
+            <next>
+               <block type="GrabObject" id="9=C,XoWB_{3J{XR`ks.F">
+                  <value name="objectType">
+                     <block type="Text" id="(N*X3aqu{McKIHSO(tm]">
+                        <field name="text">Brille</field>
+                     </block>
+                  </value>
+                  <value name="objectPosition">
+                     <block type="Text" id="t}bE~mLrHwF2%Tl:uxNy">
+                        <field name="text">geographische Daten</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="SendMessage" id="Q156~9.+RR4N$X$qh+Nc">
+                        <field name="messageType">MQTT</field>
+                        <value name="messageContent">
+                           <block type="Text" id="m@UF!^iYJ,K$BZOzpM6)">
+                              <field name="text">Hab sie!!!!</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="+U9nDu|[4chCsNENrO[J" x="43" y="616">
+      <value name="asset">
+         <block type="Text" id=")z#qGQ:|t~7:%SCU7A*6" editable="false">
+            <field name="text">Q.bo One</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="gk@wEte#H/1jwNl}2j(c">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="anly06,4!TgpXyM}/8:}">
+                  <field name="text">Hab sie!!!!</field>
+               </block>
+            </value>
+            <next>
+               <block type="VoiceOutput" id="EujPyj[s]3ho8^f17E+`">
+                  <value name="outputMessage">
+                     <block type="Text" id="8fqON]FhY4#${vp7AFfz">
+                        <field name="text">Die Brille hat der Panda</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

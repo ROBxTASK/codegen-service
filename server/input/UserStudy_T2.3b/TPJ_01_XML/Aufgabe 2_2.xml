@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="w|85E5^e+:)(*Yn=^D|L" x="16" y="8">
+      <value name="asset">
+         <block type="Text" id="`kcXKzuWm[MDO@Q5IsZ`" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="GrabObject" id="Ky!joOpJS%*Yga)AihoJ">
+            <value name="objectType">
+               <block type="Text" id="8qL)HD0#IA^Jzgpx]b~b">
+                  <field name="text">Wasserglas</field>
+               </block>
+            </value>
+            <value name="objectPosition">
+               <block type="Text" id="m$,w9;6O~!HT6u;3p4B$">
+                  <field name="text">Arbeitsplatte</field>
+               </block>
+            </value>
+            <next>
+               <block type="PutObject" id="te;t/g)jUH!x;W/d9s~P">
+                  <value name="position">
+                     <block type="Text" id="oqxU`B(8Valjz]0Z?0`k">
+                        <field name="text">Geschirrspüler</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

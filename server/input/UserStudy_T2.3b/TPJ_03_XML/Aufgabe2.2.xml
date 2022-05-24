@@ -1,0 +1,33 @@
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="SetAsset" id="F3t!~t2C!Zw6m0Rxo3h7" x="110" y="26">
+    <value name="asset">
+      <block type="Text" id="zU[En!MUTRV:W.?C#mAO" editable="false">
+        <field name="text">Universal Robot Manipulator UR10 CB3</field>
+      </block>
+    </value>
+    <next>
+      <block type="GrabObject" id="w8e_GxYf0B+SzME;enc{">
+        <value name="objectType">
+          <block type="Text" id="]j)HFUm]J*=UPakA`E49">
+            <field name="text">Wasserglas</field>
+          </block>
+        </value>
+        <value name="objectPosition">
+          <block type="Text" id="gT^8+qUdQHT{}U%!|tZy">
+            <field name="text">Tablet</field>
+          </block>
+        </value>
+        <next>
+          <block type="PutObject" id="YW!#y()M4?,c(@rXQ!j`">
+            <value name="position">
+              <block type="Text" id="@G}YY5Nq,t7/%,:O^*$!">
+                <field name="text">Tisch</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

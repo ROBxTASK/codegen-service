@@ -1,0 +1,78 @@
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="SetAsset" id=":$596A{HpeO;yl|Q^(+-" x="48" y="86">
+    <value name="asset">
+      <block type="Text" id="F(S=oUB;V~g~,DEqbQ3E" editable="false">
+        <field name="text">MiR 100 Mobile Platform</field>
+      </block>
+    </value>
+    <next>
+      <block type="MoveToLocation" id="U*HR_Ckq2Ov9l/gm2M:L">
+        <value name="location">
+          <block type="Text" id="E),/7QE^GfqhCL?@?KX]">
+            <field name="text">homePosition</field>
+          </block>
+        </value>
+        <next>
+          <block type="MoveToLocation" id="e12b|CqaBiXK3b.xu1*y">
+            <value name="location">
+              <block type="Text" id="lCp8C*8R$Mo}qh:VsMO^">
+                <field name="text">xPosition</field>
+              </block>
+            </value>
+            <next>
+              <block type="Loop" id="jSEe_XC~p|G6r3@W7)7l">
+                <value name="repeat">
+                  <block type="Text" id="5Q3]YTNy642`ggu%H96U">
+                    <field name="text">5</field>
+                  </block>
+                </value>
+                <statement name="statement">
+                  <block type="WaitForCondition" id="Nca6oSUcrQ|]_F7c)PjI">
+                    <value name="condition">
+                      <block type="Text" id="gI6JIF.^{UAmNTb~GTvG">
+                        <field name="text">Sensor aktiviert </field>
+                      </block>
+                    </value>
+                    <statement name="statement">
+                      <block type="GrabObject" id="`piCQ/??~|-Mx2N{v7(B">
+                        <value name="objectType">
+                          <block type="Text" id="j-D|-^!YGEjdsD2U{v+$">
+                            <field name="text">Würfel</field>
+                          </block>
+                        </value>
+                        <value name="objectPosition">
+                          <block type="Text" id="W2M5BMWu/(E[k#EE,::K">
+                            <field name="text">pickPosition</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="PutObject" id="RYGJtDxsJO^2JO%Z3rys">
+                            <value name="position">
+                              <block type="Text" id="B*uGx6KgR!8K*glCG%JZ">
+                                <field name="text">placePosition</field>
+                              </block>
+                            </value>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </statement>
+                <next>
+                  <block type="MoveToLocation" id="{PBX(3:2iiU2()o}2TzY">
+                    <value name="location">
+                      <block type="Text" id=".WlhT;q.J09Gi-N7G}Vt">
+                        <field name="text">homePosition</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

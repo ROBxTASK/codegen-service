@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="s*Q:kA?20oEXOBv1u,;l" x="141" y="70">
+      <value name="asset">
+         <block type="Text" id="T0}x^!V.TAXdbj4O_d3Y">
+            <field name="text">Controller</field>
+         </block>
+      </value>
+      <next>
+         <block type="SendMessage" id="hvZXG7r=0[x8V~DDh`#d">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="5:qWV%UZYKF^t0A}qP`0">
+                  <field name="text">TestCamera</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="~8OSO4seAf|P:)1?8baQ" x="143" y="166">
+      <value name="asset">
+         <block type="Text" id="RVP.(xF,u:pMVY~E|.{_">
+            <field name="text">UCI2Camera</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id=",~2))GF^8MFpZKdw-+vc">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="Z._@?vQR]l0P2/1D0ml^">
+                  <field name="text">TestCamera</field>
+               </block>
+            </value>
+            <next>
+               <block type="DetectObject" id="ejN/lL~1)!fc=}bLVb2a">
+                  <value name="object">
+                     <block type="Text" id="g^5b]6ihYptX(?r6v9Y|">
+                        <field name="text">Part_Cube</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="DetectObject" id="hg6Q#aCH;eM%~gVOEZ42">
+                        <value name="object">
+                           <block type="Text" id="3fU1-zxY2+7CQ8ESP$0$">
+                              <field name="text">Part_Cylinder</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="SendMessage" id="Kb`9n4yVo.iqchy^!,qq">
+                              <field name="messageType">MQTT</field>
+                              <value name="messageContent">
+                                 <block type="Text" id="^sorG#YEPDKV*N#g2,0#">
+                                    <field name="text">TestUR10</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="Z#T5Tl(M}h,r|~,M0vif" x="145" y="340">
+      <value name="asset">
+         <block type="Text" id="|/cIDhzUsP!rb2tx6SkP">
+            <field name="text">UCI2Ur10</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id=";,9PN+%_sGPL+m|^#+zK">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="KgsiTz}DT9A~%?ekrsml">
+                  <field name="text">TestUR10</field>
+               </block>
+            </value>
+            <next>
+               <block type="GrabObject" id="fF|#x`(B^@Vnec*.X5Dm">
+                  <value name="objectType">
+                     <block type="Text" id="HR,r_,GSt7Qp@CXOrA76">
+                        <field name="text">Part_Cube</field>
+                     </block>
+                  </value>
+                  <value name="objectPosition">
+                     <block type="Text" id="1w~Zh5%xqu!r8QVf1$st">
+                        <field name="text">1</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="GrabObject" id="@TR:|[C,T=yPEq;Vr_7Z">
+                        <value name="objectType">
+                           <block type="Text" id=".Jd[0|}eDE?6]vE!Hn(@">
+                              <field name="text">Part_Cylinder</field>
+                           </block>
+                        </value>
+                        <value name="objectPosition">
+                           <block type="Text" id="bcCC(dm0Y+-$fnaGWTFq">
+                              <field name="text">2</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="SendMessage" id="r7+b0tXwO]Zqm*;I=qgY">
+                              <field name="messageType">MQTT</field>
+                              <value name="messageContent">
+                                 <block type="Text" id="[-gP,8VW8;@ve2Uje~5A">
+                                    <field name="text">TestMIR</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="d*}=9TM8)_b`a5E1y[zI" x="147" y="567">
+      <value name="asset">
+         <block type="Text" id="-6pZzq`?vTMuv.t+z!qq">
+            <field name="text">UCI2Mir</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="xtu`DPk}[6[mU?N(LjUg">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="#1j!-8$pb(Z8@-M~|8b,">
+                  <field name="text">TestMIR</field>
+               </block>
+            </value>
+            <next>
+               <block type="MoveToLocation" id="S$=m_|R`;om2C_h1*i#q">
+                  <value name="location">
+                     <block type="Text" id="1Tc,c0uA9?rkl%;*3K/y">
+                        <field name="text">LocA</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="MoveToLocation" id="nZ_xmNa:k}#.fzXhaaJh">
+                        <value name="location">
+                           <block type="Text" id="KfOSUazGuDW6G=E_KaU=">
+                              <field name="text">LocB</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="MoveToLocation" id="{^[%|IV_Wkl#v=(amqRb">
+                              <value name="location">
+                                 <block type="Text" id="R,/$OIn5ji{VjA2*J%Wt">
+                                    <field name="text">LocC</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

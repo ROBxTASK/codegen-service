@@ -1,0 +1,34 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="jwU^CB/E/}tKk((n$$+n" x="351" y="134">
+      <value name="asset">
+         <block type="Text" id="j9!;~w0.5l^]rlzY8XsA" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="GrabObject" id="F$d_,{r%:SCa`QD[$zC,">
+            <value name="objectType">
+               <block type="Text" id="HLbuobDp}N09bj2mO$6U">
+                  <field name="text">Blumen</field>
+               </block>
+            </value>
+            <value name="objectPosition">
+               <block type="Text" id="GHA,tZ$%6-Zls5#Y5zVU">
+                  <field name="text">Tisch</field>
+               </block>
+            </value>
+            <next>
+               <block type="PutObject" id="2~xA=C8DW4z|)mpkp/Mb">
+                  <value name="position">
+                     <block type="Text" id=",243gXi^^5:8|)q`VJ_%">
+                        <field name="text">Vase</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

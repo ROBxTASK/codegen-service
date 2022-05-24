@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="NCk[HY/5Iv35TfrV(3N]" x="45" y="27">
+      <value name="asset">
+         <block type="Text" id="`Trt8w4W53(o3FF[VrE~" editable="false">
+            <field name="text">ARTI Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="MoveToPosition" id="|{*QZ[)k{^FpSm~dx+c*">
+            <value name="position">
+               <block type="Text" id="|jJB,26BC:h*rW9u8_0C">
+                  <field name="text">home</field>
+               </block>
+            </value>
+            <next>
+               <block type="SendMessage" id="3pPq!Lp]/L!Jonz+k,~s">
+                  <field name="messageType">MQTT</field>
+                  <value name="messageContent">
+                     <block type="Text" id="uq]@7wECD;20cWJxA_LS">
+                        <field name="text">angekommen, du bist dran</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="|P;0D?*?/PcuS$SB{*$N" x="51" y="144">
+      <value name="asset">
+         <block type="Text" id="e/*Z5M2Sjv$L71-`zT{v" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="k$5Zlla/Ro5m3$+Iq3CL">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="7sb[{/tb4RMbs(z}bo2D">
+                  <field name="text">angekommen, du bist dran</field>
+               </block>
+            </value>
+            <next>
+               <block type="Loop" id="rX`Ru7Pf:O~KvTjWc^ck">
+                  <value name="repeat">
+                     <block type="Text" id="g.~b@;9rPW3DwVOwgyGz">
+                        <field name="text">5</field>
+                     </block>
+                  </value>
+                  <statement name="statement">
+                     <block type="GrabObject" id="BkZp82U.OeAtZ=OFY4]O">
+                        <value name="objectType">
+                           <block type="Text" id="z.U=FGRjXs[nK]a4?BqP">
+                              <field name="text">Würfel</field>
+                           </block>
+                        </value>
+                        <value name="objectPosition">
+                           <block type="Text" id="lBvQM]+D;=[X3s_Vl[np">
+                              <field name="text">pickPosition</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="PutObject" id="xpDsdB_UY68UilV,qp3x">
+                              <value name="position">
+                                 <block type="Text" id="0yM|wxRbR?ewIkEzx0_,">
+                                    <field name="text">placePosition</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </statement>
+                  <next>
+                     <block type="SendMessage" id="/Qc(ph~rQl)iDf_Bnt*b">
+                        <field name="messageType">MQTT</field>
+                        <value name="messageContent">
+                           <block type="Text" id="}{Y@tQXaXSfysN:^)tFK">
+                              <field name="text">erledigt. ab nach hause</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="=OLqID|-%9(e/c3K!g$M" x="51" y="398">
+      <value name="asset">
+         <block type="Text" id="8md`_uxso$!Te$V*dcm%" editable="false">
+            <field name="text">ARTI Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="9V+20rPJ0Z3HIS?LYJC{">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="sC{u?Ta@7^KOe6FL]1M[">
+                  <field name="text">erledigt. ab nach hause</field>
+               </block>
+            </value>
+            <next>
+               <block type="MoveToPosition" id="]=x_~9mtM}Z--VPeM4z4">
+                  <value name="position">
+                     <block type="Text" id="Yl~gA0!x{Lcia:kzR:(`">
+                        <field name="text">homePosition</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="WaitForExternalEvent" id="^!SG*3yN.+B5O4e_!EPb">
+                        <value name="inputText">
+                           <block type="Text" id="1}wW[5)vk~r5E0Q5?JdP">
+                              <field name="text">sensoraktivierung</field>
+                           </block>
+                        </value>
+                        <value name="timestamp">
+                           <block type="Text" id="PI(!,6OO5+5=)i-A+{{T">
+                              <field name="text">future</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

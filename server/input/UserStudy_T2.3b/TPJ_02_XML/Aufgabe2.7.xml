@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="o$@h5{.|Gc0:rfVbKN~R" x="23" y="13">
+      <value name="asset">
+         <block type="Text" id="UcfN@aFg1{xt+eN[Kwbf" editable="false">
+            <field name="text">Camera system</field>
+         </block>
+      </value>
+      <next>
+         <block type="DetectObject" id="*$@+:,q?e.?{|#|=l+Qt">
+            <value name="object">
+               <block type="Text" id="Gj_.[=fgz}DQ-a4WfwOJ">
+                  <field name="text">Suject X</field>
+               </block>
+            </value>
+            <next>
+               <block type="SendMessage" id="#^YK71w9Q}zewgtMfIxL">
+                  <field name="messageType">MQTT</field>
+                  <value name="messageContent">
+                     <block type="Text" id="sRc[It:`)By{_:__=FrK">
+                        <field name="text">subject X dedected</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="f1*!EKxK=f~x2{mBlNSY" x="22" y="115">
+      <value name="asset">
+         <block type="Text" id="D),T,+tlUJ,:7:Pq7AJ4" editable="false">
+            <field name="text">Q.bo One</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="4-BgDLHRV22U0-IxO$`q">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="!55);!_Ud6aX,AvY=1*g">
+                  <field name="text">subject X dedected</field>
+               </block>
+            </value>
+            <next>
+               <block type="VoiceOutput" id=".9FYax2.2TV!1mr^@:fN">
+                  <value name="outputMessage">
+                     <block type="Text" id="ec[a:~^|idGCY?4JyuP-">
+                        <field name="text">Darf ich Ihnen einen Kaffee servieren?</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="WaitForUserInput" id="rVdU16T?h_!y^,k84XfC">
+                        <field name="inputMode">speech</field>
+                        <value name="inputContent">
+                           <block type="Text" id="a3Kt9tvi.Ep5|PV2oFU,">
+                              <field name="text">ja, bitte!</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="SendMessage" id="oUB+;O74LPQjoe$[Q6T}">
+                              <field name="messageType">MQTT</field>
+                              <value name="messageContent">
+                                 <block type="Text" id="y]5wovZ)v;cP@hg5Ptk,">
+                                    <field name="text">Kaffee</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="A!Ms^+an_qa|rQR.OHDe" x="24" y="263">
+      <value name="asset">
+         <block type="Text" id="131$]1OmPwG+/U6x1Ere" editable="false">
+            <field name="text">ARTI Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="bR5U!u.fEsbY{`L6-_[Z">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="k~zR.WZ01pE:l/s5*uwJ">
+                  <field name="text">Kaffee</field>
+               </block>
+            </value>
+            <next>
+               <block type="MoveToPosition" id="}H`0TxDtV?%jGq(0t|%:">
+                  <value name="position">
+                     <block type="Text" id="j?EZOsE@*$#U*|AD5N!1">
+                        <field name="text">Küche</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="SendMessage" id="aGXOof^}I2;fSgFD_aZ4">
+                        <field name="messageType">MQTT</field>
+                        <value name="messageContent">
+                           <block type="Text" id="g`ENLEomgNW/FdzMTv^g">
+                              <field name="text">Kaffee für subject X</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id=".$u6x,MP+/O85,9t7OP{" x="24" y="387">
+      <value name="asset">
+         <block type="Text" id=".E0x``U2w@-!TP7h%Y^_" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="_|foC3q+EqD75;DaNVvJ">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id=")H6bhL+;ZlpMIXPr1tRs">
+                  <field name="text">Kaffee für subject X</field>
+               </block>
+            </value>
+            <next>
+               <block type="GrabObject" id="3BO%+GL,X,fA2t{InH_)">
+                  <value name="objectType">
+                     <block type="Text" id=",fhfM;}S1#/},;hR8N%E">
+                        <field name="text">Tasse Kaffe für subject X</field>
+                     </block>
+                  </value>
+                  <value name="objectPosition">
+                     <block type="Text" id="ycwo)Y!?hmw.:MrUJ+|b">
+                        <field name="text">Ablage</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="PutObject" id="YPw5zn{[2jy]LS9(]@/|">
+                        <value name="position">
+                           <block type="Text" id="*f`#I8ocYKPsb3bZ%*`#">
+                              <field name="text">ARTI-Ablage</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="SendMessage" id="~PTdAGEJvN;.ge#-HQN~">
+                              <field name="messageType">MQTT</field>
+                              <value name="messageContent">
+                                 <block type="Text" id="CtX6h1En0(OUP}WmTI;#">
+                                    <field name="text">Kaffe zu subject X bringen</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="hyGy#@e9zjlf_oq/C[5t" x="23" y="583">
+      <value name="asset">
+         <block type="Text" id="ZeLHYF+FAu~pu|AN8n-`" editable="false">
+            <field name="text">ARTI Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="ZK`+RJmICV#dgXHZPIom">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="j;2=aXt_e2y1A(AInjNM">
+                  <field name="text">Kaffe zu subject X bringen</field>
+               </block>
+            </value>
+            <next>
+               <block type="MoveToLocation" id="og%njZQyB`ABGM:HsUq7">
+                  <value name="location">
+                     <block type="Text" id="LocsZC*PAt5(/i9)L!b%">
+                        <field name="text">Tisch von subject X</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

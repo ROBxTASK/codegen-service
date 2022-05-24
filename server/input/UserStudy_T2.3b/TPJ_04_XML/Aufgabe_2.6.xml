@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="QEB7aCH?*k[Z93iRX0~y" x="320" y="177">
+      <value name="asset">
+         <block type="Text" id=";(KY{B]e4SjRz}$|5Gdn" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="WaitForUserInput" id="`6wuREg`91J^Mn9:1r;D">
+            <field name="inputMode">touch</field>
+            <value name="inputContent">
+               <block type="Text" id="Fcl++/nE1T2wNp$}QMa$">
+                  <field name="text">Knopf</field>
+               </block>
+            </value>
+            <next>
+               <block type="MoveToPosition" id="ABbWYT4j+zQv2,9h_SZy">
+                  <value name="position">
+                     <block type="Text" id="EMvRIKV?Zj$!H=G/{nVJ">
+                        <field name="text">Badezimmer</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="Loop" id="5%!MsV(HrSE:5V3{Q-IZ">
+                        <value name="repeat">
+                           <block type="Text" id="41zx3#qhy-xlU_Bn6kS[">
+                              <field name="text">5</field>
+                           </block>
+                        </value>
+                        <statement name="statement">
+                           <block type="GrabObject" id="`Nb!,;0GS6Q-.DZY?Jxv">
+                              <value name="objectType">
+                                 <block type="Text" id="JZcg!Zo8wu}ktER^atc3">
+                                    <field name="text">Würfel</field>
+                                 </block>
+                              </value>
+                              <value name="objectPosition">
+                                 <block type="Text" id="q6rAP~]oVq8BHMO1jO(_">
+                                    <field name="text">Boden</field>
+                                 </block>
+                              </value>
+                              <next>
+                                 <block type="PutObject" id="L=WjPr^#*227=[JoUTwi">
+                                    <value name="position">
+                                       <block type="Text" id="{q7Y~9#lj!we#aa+t5C$">
+                                          <field name="text">Waschmaschine</field>
+                                       </block>
+                                    </value>
+                                 </block>
+                              </next>
+                           </block>
+                        </statement>
+                        <next>
+                           <block type="MoveToPosition" id="R==RCGtk.XP2#O{jnG^9">
+                              <value name="position">
+                                 <block type="Text" id="0$FV8mW]N{]imF+YO-Ku">
+                                    <field name="text">Home Base</field>
+                                 </block>
+                              </value>
+                              <next>
+                                 <block type="WaitForUserInput" id="V13]NUxuuc#DSpEF4nQq">
+                                    <field name="inputMode">touch</field>
+                                    <value name="inputContent">
+                                       <block type="Text" id="62J01{=Eh@8q2jKIEbdn">
+                                          <field name="text">Knopf</field>
+                                       </block>
+                                    </value>
+                                 </block>
+                              </next>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>
