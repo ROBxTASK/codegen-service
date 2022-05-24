@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="oQ|IS-PiSwv%HGWjMA[;" x="223" y="69">
+      <value name="asset">
+         <block type="Text" id="%Hg|:xArsV:C=i;r[{]a">
+            <field name="text">QBO</field>
+         </block>
+      </value>
+      <next>
+         <block type="WaitForUserInput" id="#xG`jei5Q:I,6#6H1(a)">
+            <field name="inputMode">speech</field>
+            <value name="inputContent">
+               <block type="Text" id="^}Ka!fr5[FpZ]Z_f3zW}">
+                  <field name="text">I need a cup with apple juice!</field>
+               </block>
+            </value>
+            <next>
+               <block type="VoiceOutput" id="$|w]O`@j4yx)zsFs{{L(">
+                  <value name="outputMessage">
+                     <block type="Text" id="O6HA5o9`H}G.olrgEcfz">
+                        <field name="text">Okay! I will tell the other robots to deliver it!</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="SendMessage" id="f:LB/md{Z]K3W=O#*Yp:">
+                        <field name="messageType">OPC-UA</field>
+                        <value name="messageContent">
+                           <block type="Text" id="DHNQPh#cLam1YVv{e[hC">
+                              <field name="text">START_LOADING</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="${yR1Qj=Ie0Bfuujxm4W" x="228" y="236">
+      <value name="asset">
+         <block type="Text" id="h=fXdOIF]l9QkW$6Go{.">
+            <field name="text">Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="zF^R^=~9B3?=q4YZQH0|">
+            <field name="messageType">OPC-UA</field>
+            <value name="messageContent">
+               <block type="Text" id="/h0`7Ey#Z`^PTp(t5[#y">
+                  <field name="text">START_LOADING</field>
+               </block>
+            </value>
+            <next>
+               <block type="GrabObject" id=".LL0c,e)BAq{`*so?-cI">
+                  <value name="objectType">
+                     <block type="Text" id="Wwdh2.e#e`IwIsywY2JC">
+                        <field name="text">WaterCup</field>
+                     </block>
+                  </value>
+                  <value name="objectPosition">
+                     <block type="Text" id="#97{MAX8HE_eoNx=s_0q">
+                        <field name="text">3</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="PutObject" id="2Xcr:y.vm2hUw813s9H*">
+                        <value name="position">
+                           <block type="Text" id="aC`KKu9ID5#TPJh})WiQ">
+                              <field name="text">1</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="SendMessage" id="4fQ.F5k=r`{V9.MQ^=Qg">
+                              <field name="messageType">OPC-UA</field>
+                              <value name="messageContent">
+                                 <block type="Text" id="2CtFjyIS::.OaSWI:$Yf">
+                                    <field name="text">START_DELIVERY</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="+}MV-3u9`/RUC{WwO5Ou" x="229" y="473">
+      <value name="asset">
+         <block type="Text" id="mC~MDiJd=U30x$Pk:}q.">
+            <field name="text">Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="P)r1uT)${W7*=0PZK~py">
+            <field name="messageType">OPC-UA</field>
+            <value name="messageContent">
+               <block type="Text" id="Dm}N{?~;j8FrcJ4qjiTT">
+                  <field name="text">START_DELIVERY</field>
+               </block>
+            </value>
+            <next>
+               <block type="MoveToLocation" id="^7)~^K+WQDJz`d7QQz|e">
+                  <value name="location">
+                     <block type="Text" id="N4OrxJdVs5TO{G/$HgYX">
+                        <field name="text">PatientBed_3</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="WaitForUserInput" id="7Tu[Q%8Vg2(G)z+q?El/">
+                        <field name="inputMode">touch</field>
+                        <value name="inputContent">
+                           <block type="Text" id="Ih)9pK*Cl`Pn8[3H^U54">
+                              <field name="text">SOFT</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="MoveToLocation" id="P:ES,|0qdEhNpE^pYriq">
+                              <value name="location">
+                                 <block type="Text" id=";x+%;^vH}f_N@x6gjpc/">
+                                    <field name="text">ParkingPosition</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

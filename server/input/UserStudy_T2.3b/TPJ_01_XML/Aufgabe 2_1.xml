@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="*C3.j{iHL(TP)uz3w-p2" x="13" y="46">
+      <value name="asset">
+         <block type="Text" id="{|r#3uKcnoI57FG-^l]T" editable="false">
+            <field name="text">Camera system</field>
+         </block>
+      </value>
+      <next>
+         <block type="SendMessage" id="~wa92lk.ug4~A3ml0`6g">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="NU3-eQreffiIl3vzw{vD">
+                  <field name="text">Aufwachen</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="Jd2iy(+:^rX2g$@dYdT`" x="11" y="131">
+      <value name="asset">
+         <block type="Text" id="k4z0*EMVeV/~nM7xsv1j" editable="false">
+            <field name="text">Fitbit Smartwatch</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="d@+;f%z{FUAbyYJOEnQZ">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="hC4h?**2D.pR{?.a|fA{">
+                  <field name="text">Aufwachen</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+</xml>

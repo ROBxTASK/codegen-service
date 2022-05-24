@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id=";_K4KDU-h@l#Zhx}FB)4" x="346" y="82">
+      <value name="asset">
+         <block type="Text" id="qcs#?dqR~jV@v@dF1h*J" editable="false">
+            <field name="text">ARTI Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="MoveToPosition" id="*LX@ltJNPx=NPk9V`W4L">
+            <value name="position">
+               <block type="Text" id="w3YxqIzR!nr4RVsM~@z^">
+                  <field name="text">Vorzimmer</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+</xml>

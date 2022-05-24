@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="8:[[G+1FL5ya;NpGc4Nm" x="156" y="88">
+      <value name="asset">
+         <block type="Text" id="$7h(6JZvhuAx)^5PdY1s" editable="false">
+            <field name="text">ARTI Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="MoveToPosition" id="I8lNNi~/fV=P.6Dk0f_S">
+            <value name="position">
+               <block type="Text" id="IJq-{Uyo5jULCA3p^Am1">
+                  <field name="text">Küche</field>
+               </block>
+            </value>
+            <next>
+               <block type="Loop" id="xi_bnDi3${x6hkn[RRCa">
+                  <value name="repeat">
+                     <block type="Text" id="ykS,uBHuXqXN6p]A0i:3">
+                        <field name="text">5</field>
+                     </block>
+                  </value>
+                  <statement name="statement">
+                     <block type="Selection" id="=irI`N$d)+dUD`:#iG#p">
+                        <value name="condition">
+                           <block type="Text" id="_%fPN6ELSj7@+4Pj,9g|">
+                              <field name="text">Lichtschranke an</field>
+                           </block>
+                        </value>
+                        <statement name="statement">
+                           <block type="GrabObject" id="xT?nXl`w2+zY_|,BOmme">
+                              <value name="objectType">
+                                 <block type="Text" id="r(X{M4_48*-9ta)=8=/h">
+                                    <field name="text">würfel</field>
+                                 </block>
+                              </value>
+                              <value name="objectPosition">
+                                 <block type="Text" id="R3JhutY85IVW/Q=(RK#9">
+                                    <field name="text">X</field>
+                                 </block>
+                              </value>
+                              <next>
+                                 <block type="PutObject" id="),,3xON{=W8RO0=Ad5Hn">
+                                    <value name="position">
+                                       <block type="Text" id="{}h?K}.cXpwG.(mHtvyd">
+                                          <field name="text">Y</field>
+                                       </block>
+                                    </value>
+                                 </block>
+                              </next>
+                           </block>
+                        </statement>
+                     </block>
+                  </statement>
+                  <next>
+                     <block type="MoveToPosition" id="z2FDR,h9b%TH|n}k0a.)">
+                        <value name="position">
+                           <block type="Text" id="Y@vEd/2T%p(2B}g:nRGc">
+                              <field name="text">nach Hause</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

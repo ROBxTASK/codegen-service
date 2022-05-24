@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="${yR1Qj=Ie0Bfuujxm4W" x="273" y="167">
+      <value name="asset">
+         <block type="Text" id="h=fXdOIF]l9QkW$6Go{.">
+            <field name="text">Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="Loop" id="NeZB1cAKbueo6{cI%s`b">
+            <value name="repeat">
+               <block type="Text" id="32[wOW#Dm@:hvCeDbV7]">
+                  <field name="text">X=9</field>
+               </block>
+            </value>
+            <statement name="statement">
+               <block type="GrabObject" id=".LL0c,e)BAq{`*so?-cI">
+                  <value name="objectType">
+                     <block type="Text" id="Wwdh2.e#e`IwIsywY2JC">
+                        <field name="text">WaterCup</field>
+                     </block>
+                  </value>
+                  <value name="objectPosition">
+                     <block type="Text" id="#97{MAX8HE_eoNx=s_0q">
+                        <field name="text">X</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="PutObject" id="2Xcr:y.vm2hUw813s9H*">
+                        <value name="position">
+                           <block type="Text" id="aC`KKu9ID5#TPJh})WiQ">
+                              <field name="text">2</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </statement>
+            <next>
+               <block type="MoveToLocation" id="^7)~^K+WQDJz`d7QQz|e">
+                  <value name="location">
+                     <block type="Text" id="N4OrxJdVs5TO{G/$HgYX">
+                        <field name="text">cart init</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="MoveToLocation" id="1FV$zJ}B`CIb21rX9NB:">
+                        <value name="location">
+                           <block type="Text" id=")WJB`cAQ*y}iJ5W$z!ve">
+                              <field name="text">cups init</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

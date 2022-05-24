@@ -1,0 +1,13 @@
+version: '3.3'
+
+services:
+  codegen:
+    image: robxtask/codegen
+    build: server
+    environment:
+      CG_IDENTITY_SERVICE: https://robxtask.salzburgresearch.at/identity-service
+    ports:
+      - "8083:8083"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    restart: always
