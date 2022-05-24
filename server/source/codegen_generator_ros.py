@@ -56,7 +56,7 @@ class ROSGeneratorClass():
 		self.c.write('#--------------------------------------------------------------------------------------\n')
 		self.c.write('def send_ROSActionRequest_WithGoal(skillName, skillMsgType, skillGoal):\n\n')
 		self.c.indent()
-		self.c.write('rospy.init_node('+ self.clientString +') # Initializes a rospy node so that the SimpleActionClient can publish and subscribe over ROS\n\n')
+		self.c.write('rospy.init_node(\''+ self.clientString +'\') # Initializes a rospy node so that the SimpleActionClient can publish and subscribe over ROS\n\n')
 		self.c.write('client = actionlib.SimpleActionClient(skillName, skillMsgType) # Creates SimpleActionClient with skillMsgType action type\n')
 		self.c.write('client.wait_for_server() # Waits until the action server has started up and started listening for goals\n')
 		self.c.write('client.send_goal(skillGoal) # Sends the goal to the action server\n')
