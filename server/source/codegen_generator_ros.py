@@ -8,6 +8,7 @@ import codegen_generator_autorun
 # Class to hold infos that should get created
 #--------------------------------------------
 # Author: SRFG, Mathias Schmoigl-Tonis
+# Author: Gowtham Sridhar 
 # Project: ROBxTASK
 # Date: Q1-Q2 2022
 #--------------------------------------------
