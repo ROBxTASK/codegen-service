@@ -61,10 +61,10 @@ class GoalPositionHelper:
 									'WaitForCondition': (1,1),				# goal position (slotName, slotValue) for Skill WaitForCondition
 									'GetData': (1,1),						# goal position (slotName, slotValue) for Skill GetData
 									'SetData': (1,1),						# goal position (slotName, slotValue) for Skill SetData
-									'WaitForExternalEvent': (1,1),			# goal position (slotName, slotValue) for Skill WaitForExternalEvent
+									'WaitForExternalEvent': (0,0),			# goal position (slotName, slotValue) for Skill WaitForExternalEvent
 									'WaitForUserInput': (0,1),				# goal position (slotName, slotValue) for Skill WaitForUserInput
 									'VoiceOutput': (0,0),					# goal position (slotName, slotValue) for Skill VoiceOutput
-									'GraphicalUserInteraction': (1,1)		# goal position (slotName, slotValue) for Skill GraphicalUserInteraction
+									'GraphicalUserInteraction': (0,0)		# goal position (slotName, slotValue) for Skill GraphicalUserInteraction
 								}
 
 	#--------------------------------------------
