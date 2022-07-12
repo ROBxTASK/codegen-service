@@ -3,7 +3,7 @@
 import sys, string, os, shutil
 import codegen_generator_helper
 
-nrOfControllersDetected = 0
+
 		
 #--------------------------------------------
 # Class to hold infos that should get created
@@ -20,13 +20,13 @@ class OPCUAGeneratorClass():
 	def __init__(self, clientString, listBlocks):
 		self.clientString = clientString
 		self.listBlocks = listBlocks
-		self.messageContent = "[Empty Message Content]"
+		self.messageContent = ""
 	
 	#--------------------------------------------
 	# dump all blocks of all assets to files
 	#--------------------------------------------
 	def dump_all(self, filename):
-		global nrOfControllersDetected
+		nrOfControllersDetected = 0
 
 		if os.path.exists(os.path.dirname(filename)):
 			shutil.rmtree(os.path.dirname(filename)) # recursive remove of dir and all files
@@ -66,6 +66,9 @@ class OPCUAGeneratorClass():
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
 		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
 
+		self.c.write('async def on_rxte__message__'+ assetName+'_rxtx_helpers(messages):\n')
+		self.c.indent()		
+
 		# create all blocks read from XML
 		for block in blocks:
 			if block.blockName[0] == 'STATEMENT_ENDTAG': # end of control statement
@@ -84,6 +87,7 @@ class OPCUAGeneratorClass():
 				self.write_skillblock(block, assetName, True)	
 		
 		# start async
+		self.c.dedent()
 		self.c.dedent()
 		self.c.dedent()
 		self.c.write('rxtx_helpers.startAsync()\n')
@@ -171,13 +175,13 @@ class OPCUAGeneratorClass():
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# Trying to invoke skill: ' + skillName + '\n')
 		self.c.write('# ----------------------------------\n')
-		self.c.write('await rxtx_helpers.logSkillCall("' + skillName + '","' + slotValue + '")\n')
+		self.c.write('await rxtx_helpers.logSkillCall("' + skillName + '","'+slotValue+'")\n')
 
 
 		# TODO: temporary solution because only GrabObject skill on OPCUA currently needs both parameter slots
 		# should be changed once we know how real GrabObject skill on OPCUAwill be implemented
 		if skillName == 'GrabObject':
-			self.c.write('await rxta_' + assetName + '.' + skillName + '("' + block.blockSlotValue[0] + '"," ' + block.blockSlotValue[1]+ '")\n')
+			self.c.write('await rxta_' + assetName + '.' + skillName + '("' + block.blockSlotValue[0] + '","' + block.blockSlotValue[1]+ '")\n')
 		else:
 			self.c.write('await rxta_' + assetName + '.' + skillName + '("' + slotValue + '")\n')
 		
