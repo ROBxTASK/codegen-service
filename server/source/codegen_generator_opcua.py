@@ -177,7 +177,7 @@ class OPCUAGeneratorClass():
 		# TODO: temporary solution because only GrabObject skill on OPCUA currently needs both parameter slots
 		# should be changed once we know how real GrabObject skill on OPCUAwill be implemented
 		if skillName == 'GrabObject':
-			self.c.write('await rxta_' + assetName + '.' + skillName + '("' + block.blockSlotValue[0] + '", ' + block.blockSlotValue[1] + ')\n')
+			self.c.write('await rxta_' + assetName + '.' + skillName + '("' + block.blockSlotValue[0] + '", "' + block.blockSlotValue[1])+ '")\n')
 		else:
 			self.c.write('await rxta_' + assetName + '.' + skillName + '("' + slotValue + '")\n')
 		
