@@ -36,7 +36,7 @@ class OPCUAGeneratorClass():
 		for blocks in self.listBlocks:
 			assetName = blocks[0].assetName
 		
-			if len(blocks) == 1 and blocks[0].blockName[0] == "SendMessage": # check if it has only one SendMessage-Block
+			if len(blocks) == 1 and blocks[0].blockName[0] != "OnReceiveMessage" and nrOfControllersDetected < 2 and nrOfControllersDetected > 0: # check if it has only one SendMessage-Block
 				self.dump_controller(filename + "agent_01_" + assetName + ".py", assetName, blocks)
 				nrOfControllersDetected+=1
 			else:
