@@ -2,6 +2,8 @@
 # coding=utf-8
 import sys, string, os, shutil
 import codegen_generator_helper
+
+nrOfControllersDetected = 0
 		
 #--------------------------------------------
 # Class to hold infos that should get created
@@ -24,6 +26,7 @@ class OPCUAGeneratorClass():
 	# dump all blocks of all assets to files
 	#--------------------------------------------
 	def dump_all(self, filename):
+		global nrOfControllersDetected
 
 		if os.path.exists(os.path.dirname(filename)):
 			shutil.rmtree(os.path.dirname(filename)) # recursive remove of dir and all files
@@ -32,7 +35,7 @@ class OPCUAGeneratorClass():
 		# in OPCUA environment a "Controller" is needed to set starting point of application
 		# this controller can be identified by having only one SendMessage-Command as a block
 		# there should only be one "Controller" in a script to work in VM env
-		nrOfControllersDetected = 0
+		
 		for blocks in self.listBlocks:
 			assetName = blocks[0].assetName
 		
