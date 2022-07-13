@@ -84,7 +84,7 @@ class OPCUAGeneratorClass():
 				self.write_selectionblock(block)
 				self.c.indent()
 			elif block.blockName[0] == 'OnMessageReceive':
-				self.write_messagelistener(block.blockSlotValue[1], block)
+				self.write_messagelistener(block.blockSlotValue[1], block,type_script)
 			elif block.blockName[0] == 'SendMessage':
 				self.write_sendmessage(block, assetName)
 			else:
@@ -151,13 +151,16 @@ class OPCUAGeneratorClass():
 	#--------------------------------------------
 	# write message listener to file
 	#--------------------------------------------
-	def write_messagelistener(self, message_name, block):
-
-		self.c.dedent()
-		self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
-		self.c.indent()
-		self.c.indent()
-		self.c.write('async for message in messages:\n\n')
+	def write_messagelistener(self, message_name, block,type_scripts):
+		if type_scripts == "controller":
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+		else:
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
 		self.c.indent()
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# This is the automatically generated message execution code\n')
