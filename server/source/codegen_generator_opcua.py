@@ -89,6 +89,9 @@ class OPCUAGeneratorClass():
 				self.write_sendmessage(block, assetName)
 			else:
 				self.write_skillblock(block, assetName, True)	
+		#stop async
+		self.c.write('await rxtx_helpers.stop()\n\n')
+
 		
 		# start async
 		self.c.dedent()
@@ -135,7 +138,7 @@ class OPCUAGeneratorClass():
 		self.c.write('print("*** on_rxte__message__Ur10Tested__rxtx_helpers()")\n')
 		self.c.write('sMsg = str(message.payload.decode("utf-8")).strip()\n')
 		self.c.write('print("Total Workflow was Tested: " + sMsg)\n')
-		self.c.write('await rxtx_helpers.stop()\n\n')
+		# self.c.write('await rxtx_helpers.stop()\n\n')
 			
 		# start async
 		self.c.dedent()	
@@ -224,7 +227,7 @@ class OPCUAGeneratorClass():
 		self.c.write('# Trying to send message \n')
 		self.c.write('# ----------------------------------\n')
 		self.c.write('await rxtx_helpers.sendMessage("' + slotValue + '", "' + self.messageContent + '")\n')
-		self.c.write('await rxtx_helpers.stop()\n\n')
+		# self.c.write('await rxtx_helpers.stop()\n\n')
 
 	#--------------------------------------------
 	# write a simple loop block to file
