@@ -40,12 +40,12 @@ class OPCUAGeneratorClass():
 			assetName = blocks[0].assetName
 		
 			if len(blocks) >= 1 and blocks[0].blockName[0] != "OnMessageReceive": # check if it has only one SendMessage-Block
-				self.dump_asset(filename + "agent_01_" + assetName + ".py", assetName, blocks)
+				self.dump_asset(filename + "agent_01_" + assetName + ".py", assetName, blocks, "controller")
 				nrOfControllersDetected+=1
 				if nrOfControllersDetected > 1:
 					break
 			else:
-				self.dump_asset(filename + "agent_rxta_" + assetName + "_01.py", assetName, blocks)
+				self.dump_asset(filename + "agent_rxta_" + assetName + "_01.py", assetName, blocks, "other_script")
 		
 		# Important Note:
 		# If we dont have excactly one controller for the moment we only print a warning
@@ -56,7 +56,7 @@ class OPCUAGeneratorClass():
 	#--------------------------------------------
 	# dump all blocks of one asset to file
 	#--------------------------------------------
-	def dump_asset(self, filename, assetName, blocks):
+	def dump_asset(self, filename, assetName, blocks,type_script):
 	
 		# imports and Co
 		self.c = codegen_generator_helper.GeneratorHelper()
@@ -65,6 +65,12 @@ class OPCUAGeneratorClass():
 		self.c.write('from logging import setLogRecordFactory\n')
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
 		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
+
+		if type_script == "controller":
+			self.c.write('async def startRobXTask():\n')
+			self.c.indent()
+		else:
+			pass
 	
 
 		# create all blocks read from XML
