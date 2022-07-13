@@ -65,9 +65,7 @@ class OPCUAGeneratorClass():
 		self.c.write('from logging import setLogRecordFactory\n')
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
 		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
-
-		self.c.write('async def on_rxte__message__'+ assetName+'_rxtx_helpers(messages):\n')
-		self.c.indent()		
+	
 
 		# create all blocks read from XML
 		for block in blocks:
