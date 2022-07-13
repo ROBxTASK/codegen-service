@@ -153,6 +153,7 @@ class OPCUAGeneratorClass():
 	#--------------------------------------------
 	def write_messagelistener(self, message_name, block):
 
+		self.c.dedent()
 		self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 		self.c.indent()
 		self.c.write('async for message in messages:\n\n')
