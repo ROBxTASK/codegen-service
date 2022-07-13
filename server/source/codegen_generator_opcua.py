@@ -64,7 +64,7 @@ class OPCUAGeneratorClass():
 		self.c.write('import asyncio\n')
 		self.c.write('from logging import setLogRecordFactory\n')
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
-		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
+		self.c.write('import ' + assetName + ' as ' + assetName + '\n\n')
 
 		if type_script == "controller":
 			self.c.write('async def startRobXTask():\n')
