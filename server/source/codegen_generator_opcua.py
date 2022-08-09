@@ -3,7 +3,8 @@
 import sys, string, os, shutil
 import codegen_generator_helper
 
-
+counter_block_controller = 0
+counter_block_asset = 0
 		
 #--------------------------------------------
 # Class to hold infos that should get created
@@ -155,19 +156,18 @@ class OPCUAGeneratorClass():
 	# write message listener to file
 	#--------------------------------------------
 	def write_messagelistener(self, message_name, block,type_scripts):
-		if type_scripts == "controller":
-			self.c.dedent()
-			self.c.dedent()
-			self.c.dedent()
-			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
-			self.c.indent()
-			self.c.write('async for message in messages:\n\n')
-		else:
-			self.c.dedent()
+		global counter_block_asset, counter_block_controller
+		if type_scripts == "controller" and counter_block_controller < 1:
 			self.c.dedent()
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
+			counter_block_controller += 1
+		elif type_scripts == "other_script" and counter_block_asset < 1:
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+			counter_block_asset += 1
 		self.c.indent()
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# This is the automatically generated message execution code\n')
@@ -231,6 +231,7 @@ class OPCUAGeneratorClass():
 		self.c.write('# Trying to send message \n')
 		self.c.write('# ----------------------------------\n')
 		self.c.write('await rxtx_helpers.sendMessage("' + slotValue + '", "' + self.messageContent + '")\n')
+
 		# self.c.write('await rxtx_helpers.stop()\n\n')
 
 	#--------------------------------------------
