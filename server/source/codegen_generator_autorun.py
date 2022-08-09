@@ -44,7 +44,7 @@ class AutoRunGeneratorClass():
 		self.c.write('Terminal=true\n')
 		self.c.write('Type=Application\n')
 		self.c.write('StartupNotify=true\n')
-		self.c.write('/usr/local/share/icons/ros.png\n')
+		self.c.write('icon=/usr/local/share/icons/ros.png\n')
 
 		# write to filestream		
 		os.makedirs(os.path.dirname(filename), exist_ok=True) # Note: only works in Python 3.6(!)
