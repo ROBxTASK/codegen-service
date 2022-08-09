@@ -168,7 +168,10 @@ class OPCUAGeneratorClass():
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
 			counter_block_asset += 1
-		self.c.indent()
+		if type_scripts == "controller":
+			pass
+		else:
+			self.c.indent()
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# This is the automatically generated message execution code\n')
 		self.c.write('# ----------------------------------\n')
