@@ -90,7 +90,7 @@ class OPCUAGeneratorClass():
 			else:
 				self.write_skillblock(block, assetName, True)	
 		#stop async
-		self.c.write('await rxtx_helpers.stop()\n\n')
+		# self.c.write('await rxtx_helpers.stop()\n\n')
 
 		
 		# start async
