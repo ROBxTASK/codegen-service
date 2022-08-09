@@ -87,7 +87,7 @@ class OPCUAGeneratorClass():
 			elif block.blockName[0] == 'OnMessageReceive':
 				self.write_messagelistener(block.blockSlotValue[1], block,type_script)
 			elif block.blockName[0] == 'SendMessage':
-				self.write_sendmessage(block, assetName)
+				self.write_sendmessage(block, assetName,typescript=type_script)
 			else:
 				self.write_skillblock(block, assetName, True)	
 		#stop async
@@ -223,7 +223,7 @@ class OPCUAGeneratorClass():
 	#--------------------------------------------
 	# write send message
 	#--------------------------------------------
-	def write_sendmessage(self, block, assetName):
+	def write_sendmessage(self, block, assetName,typescript):
 		
 		slotValue = block.blockSlotValue[1]
 
@@ -231,7 +231,10 @@ class OPCUAGeneratorClass():
 		self.c.write('# Trying to send message \n')
 		self.c.write('# ----------------------------------\n')
 		self.c.write('await rxtx_helpers.sendMessage("' + slotValue + '", "' + self.messageContent + '")\n')
-		self.c.dedent()
+		if typescript == "controller":
+			pass
+		else:
+			self.c.dedent()
 		# self.c.write('await rxtx_helpers.stop()\n\n')
 
 	#--------------------------------------------
