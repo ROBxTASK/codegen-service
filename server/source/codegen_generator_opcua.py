@@ -3,8 +3,7 @@
 import sys, string, os, shutil
 import codegen_generator_helper
 
-counter_block_controller = 0
-counter_block_asset = 0
+list_block_new_def = []
 		
 #--------------------------------------------
 # Class to hold infos that should get created
@@ -67,11 +66,7 @@ class OPCUAGeneratorClass():
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
 		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
 
-		if type_script == "controller":
-			self.c.write('async def startRobXTask():\n')
-			self.c.indent()
-		else:
-			pass
+
 	
 
 		# create all blocks read from XML
@@ -85,13 +80,13 @@ class OPCUAGeneratorClass():
 				self.write_selectionblock(block)
 				self.c.indent()
 			elif block.blockName[0] == 'OnMessageReceive':
-				self.write_messagelistener(block.blockSlotValue[1], block,type_script)
+				self.write_messagelistener(block.blockSlotValue[1], block,asset=assetName)
 			elif block.blockName[0] == 'SendMessage':
-				self.write_sendmessage(block, assetName,typescript=type_script)
+				self.write_sendmessage(block, assetName)
 			else:
 				self.write_skillblock(block, assetName, True)	
 		#stop async
-		# self.c.write('await rxtx_helpers.stop()\n\n')
+		self.c.write('await rxtx_helpers.stop()\n\n')
 
 		
 		# start async
@@ -155,23 +150,17 @@ class OPCUAGeneratorClass():
 	#--------------------------------------------
 	# write message listener to file
 	#--------------------------------------------
-	def write_messagelistener(self, message_name, block,type_scripts):
-		global counter_block_asset, counter_block_controller
-		if type_scripts == "controller" and counter_block_controller < 1:
-			self.c.dedent()
+	def write_messagelistener(self, message_name, block,asset):
+		global list_block_new_def
+
+		if asset not in list_block_new_def:
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
-			counter_block_controller += 1
-		elif type_scripts == "other_script" and counter_block_asset < 1:
-			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 			self.c.indent()
-			self.c.write('async for message in messages:\n\n')
-			counter_block_asset += 1
-		if type_scripts == "controller":
-			pass
+			list_block_new_def.append(asset)
 		else:
-			self.c.indent()
+			pass
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# This is the automatically generated message execution code\n')
 		self.c.write('# ----------------------------------\n')
@@ -226,7 +215,7 @@ class OPCUAGeneratorClass():
 	#--------------------------------------------
 	# write send message
 	#--------------------------------------------
-	def write_sendmessage(self, block, assetName,typescript):
+	def write_sendmessage(self, block, assetName):
 		
 		slotValue = block.blockSlotValue[1]
 
@@ -234,10 +223,6 @@ class OPCUAGeneratorClass():
 		self.c.write('# Trying to send message \n')
 		self.c.write('# ----------------------------------\n')
 		self.c.write('await rxtx_helpers.sendMessage("' + slotValue + '", "' + self.messageContent + '")\n')
-		if typescript == "controller":
-			pass
-		else:
-			self.c.dedent()
 		# self.c.write('await rxtx_helpers.stop()\n\n')
 
 	#--------------------------------------------
