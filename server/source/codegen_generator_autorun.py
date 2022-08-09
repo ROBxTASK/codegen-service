@@ -25,7 +25,7 @@ class AutoRunGeneratorClass():
 
 		# write to filestream		
 		os.makedirs(os.path.dirname(filename), exist_ok=True) # Note: only works in Python 3.6(!)
-		f = open(filename,'w')
+		f = open(os.open(filename, os.O_CREAT | os.O_WRONLY, 0o777),'w')
 		f.write(self.c.end())
 		f.close()
 	
@@ -40,12 +40,14 @@ class AutoRunGeneratorClass():
 		self.c.write('[Desktop Entry]\n')
 		self.c.write('Version=v0.8.5\n')
 		self.c.write('Name='+ assetname +'_autorun_ubuntu\n')
-		self.c.write('Exec=python /home/panda/ros_workspace/src/rxt_codegen/output/generated_results/' + scriptname + '\n')
+		self.c.write('Exec=bash -c "source /opt/ros/kinetic/setup.bash && source ~/ros_workspace/devel/setup.bash && rosrun rxt_skills_panda panda_action_client.py; sleep 50000"\n')
 		self.c.write('Terminal=true\n')
 		self.c.write('Type=Application\n')
+		self.c.write('StartupNotify=true\n')
+		self.c.write('/usr/local/share/icons/ros.png\n')
 
 		# write to filestream		
 		os.makedirs(os.path.dirname(filename), exist_ok=True) # Note: only works in Python 3.6(!)
-		f = open(filename,'w')
+		f = open(os.open(filename, os.O_CREAT | os.O_WRONLY, 0o777),'w')
 		f.write(self.c.end())
 		f.close()

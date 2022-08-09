@@ -96,7 +96,7 @@ class ROSGeneratorClass():
 		
 		# write to filestream		
 		os.makedirs(os.path.dirname(filename), exist_ok=True) # Note: only works in Python 3.6(!)
-		f = open(filename,'w')
+		f = open(os.open(filename, os.O_CREAT | os.O_WRONLY, 0o777),'w')
 		f.write(self.c.end())
 		f.close()
 
