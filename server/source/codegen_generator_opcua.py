@@ -3,7 +3,7 @@
 import sys, string, os, shutil
 import codegen_generator_helper
 
-list_block_new_def = []
+
 		
 #--------------------------------------------
 # Class to hold infos that should get created
@@ -57,7 +57,6 @@ class OPCUAGeneratorClass():
 	# dump all blocks of one asset to file
 	#--------------------------------------------
 	def dump_asset(self, filename, assetName, blocks,type_script):
-		global list_block_new_def
 	
 		# imports and Co
 		self.c = codegen_generator_helper.GeneratorHelper()
@@ -67,18 +66,11 @@ class OPCUAGeneratorClass():
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
 		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
 
-		
-
-		if assetName not in list_block_new_def:
-			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+		if type_script == "controller":
+			self.c.write('async def startRobXTask():\n')
 			self.c.indent()
-			self.c.write('async for message in messages:\n\n')
-			self.c.indent()
-			list_block_new_def.append(asset)
 		else:
 			pass
-
-
 	
 
 		# create all blocks read from XML
@@ -92,7 +84,7 @@ class OPCUAGeneratorClass():
 				self.write_selectionblock(block)
 				self.c.indent()
 			elif block.blockName[0] == 'OnMessageReceive':
-				self.write_messagelistener(block.blockSlotValue[1], block)
+				self.write_messagelistener(block.blockSlotValue[1], block,type_script)
 			elif block.blockName[0] == 'SendMessage':
 				self.write_sendmessage(block, assetName)
 			else:
@@ -162,8 +154,17 @@ class OPCUAGeneratorClass():
 	#--------------------------------------------
 	# write message listener to file
 	#--------------------------------------------
-	def write_messagelistener(self, message_name, block):
-		
+	def write_messagelistener(self, message_name, block,type_scripts):
+		if type_scripts == "controller":
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+		else:
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+		self.c.indent()
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# This is the automatically generated message execution code\n')
 		self.c.write('# ----------------------------------\n')
