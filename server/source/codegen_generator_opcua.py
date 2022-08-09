@@ -231,6 +231,7 @@ class OPCUAGeneratorClass():
 		self.c.write('# Trying to send message \n')
 		self.c.write('# ----------------------------------\n')
 		self.c.write('await rxtx_helpers.sendMessage("' + slotValue + '", "' + self.messageContent + '")\n')
+		self.c.dedent()
 
 		# self.c.write('await rxtx_helpers.stop()\n\n')
 
