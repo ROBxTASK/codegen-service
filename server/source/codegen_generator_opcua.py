@@ -162,21 +162,21 @@ class OPCUAGeneratorClass():
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
-			counter_control_rec += 1
+			
 		if type_scripts == "other_script" and counter_script_rec == 0:
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
-			counter_script_rec += 1
+			
 
-		if counter_control_rec > 1:
+		if counter_control_rec > 0:
 			self.c.dedent()
 			self.c.dedent()
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
 
-		if counter_script_rec > 1:
+		if counter_script_rec > 0:
 			self.c.dedent()
 			self.c.dedent()
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
@@ -191,6 +191,13 @@ class OPCUAGeneratorClass():
 		self.c.write('print("*** on_rxte__message__' + message_name + '__rxtx_helpers()")\n')
 		self.c.write('sMessage = str(message.payload.decode("utf-8")).strip()\n')
 		self.c.write('print("got Message: " + sMessage)\n\n')
+
+		if type_scripts == "controller":
+			counter_control_rec += 1
+		if type_scripts == "other_script":
+			counter_script_rec += 1
+
+
 
 	#--------------------------------------------
 	# write single skill block to file
