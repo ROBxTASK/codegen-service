@@ -26,6 +26,7 @@ class OPCUAGeneratorClass():
 	# dump all blocks of all assets to files
 	#--------------------------------------------
 	def dump_all(self, filename):
+		global counter_script_rec, counter_control_rec
 		nrOfControllersDetected = 0
 
 		if os.path.exists(os.path.dirname(filename)):
@@ -42,10 +43,12 @@ class OPCUAGeneratorClass():
 			if len(blocks) >= 1 and blocks[0].blockName[0] != "OnMessageReceive": # check if it has only one SendMessage-Block
 				self.dump_asset(filename + "agent_rxta_" + assetName + ".py", assetName, blocks, "controller")
 				nrOfControllersDetected+=1
+				counter_control_rec = 0
 				if nrOfControllersDetected > 1:
 					break
 			else:
 				self.dump_asset(filename + "agent_rxta_" + assetName + ".py", assetName, blocks, "other_script")
+				counter_script_rec = 0
 		
 		# Important Note:
 		# If we dont have excactly one controller for the moment we only print a warning
@@ -176,7 +179,7 @@ class OPCUAGeneratorClass():
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
 
-		if counter_script_rec > 0:
+		if counter_script_rec > 1:
 			self.c.dedent()
 			self.c.dedent()
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
