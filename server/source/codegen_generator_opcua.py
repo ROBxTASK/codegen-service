@@ -60,6 +60,7 @@ class OPCUAGeneratorClass():
 	# dump all blocks of one asset to file
 	#--------------------------------------------
 	def dump_asset(self, filename, assetName, blocks,type_script):
+		counter = 0
 	
 		# imports and Co
 		self.c = codegen_generator_helper.GeneratorHelper()
@@ -76,9 +77,10 @@ class OPCUAGeneratorClass():
 		# 	pass
 
 		for block in blocks:
-			if block.blockName[0] == 'OnMessageReceive':
+			if block.blockName[0] == 'OnMessageReceive' and counter < 1:
 				self.c.write('async def on_rxte__message__'+ block.blockSlotValue[1] +'__rxtx_helpers(messages):\n')
 				self.c.indent()
+				counter += 1
 			else:
 				pass
 	
