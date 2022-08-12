@@ -179,7 +179,7 @@ class OPCUAGeneratorClass():
 			self.c.indent()
 			self.c.write('async for message in messages:\n\n')
 
-		if counter_script_rec > 1:
+		if counter_script_rec > 0:
 			self.c.dedent()
 			self.c.dedent()
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
