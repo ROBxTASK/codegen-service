@@ -155,6 +155,8 @@ class OPCUAGeneratorClass():
 	# write message listener to file
 	#--------------------------------------------
 	def write_messagelistener(self, message_name, block,type_scripts):
+		self.c.dedent()
+		self.c.dedent()
 		if type_scripts == "controller":
 			self.c.dedent()
 			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
