@@ -78,7 +78,7 @@ class OPCUAGeneratorClass():
 				self.write_selectionblock(block)
 				self.c.indent()
 			elif block.blockName[0] == 'OnMessageReceive':
-				counter_rec += 1
+				
 				self.write_messagelistener(block.blockSlotValue[1], block,type_script)
 			elif block.blockName[0] == 'SendMessage':
 				self.write_sendmessage(block, assetName)
@@ -169,6 +169,7 @@ class OPCUAGeneratorClass():
 		self.c.write('print("*** on_rxte__message__' + message_name + '__rxtx_helpers()")\n')
 		self.c.write('sMessage = str(message.payload.decode("utf-8")).strip()\n')
 		self.c.write('print("got Message: " + sMessage)\n\n')
+		counter_rec += 1
 
 	#--------------------------------------------
 	# write single skill block to file
