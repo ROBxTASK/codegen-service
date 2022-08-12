@@ -3,8 +3,8 @@
 import sys, string, os, shutil
 import codegen_generator_helper
 
-
-counter_rec = 0
+counter_control_rec = 0
+counter_script_rec = 0
 #--------------------------------------------
 # Class to hold infos that should get created
 #--------------------------------------------
@@ -57,7 +57,6 @@ class OPCUAGeneratorClass():
 	# dump all blocks of one asset to file
 	#--------------------------------------------
 	def dump_asset(self, filename, assetName, blocks,type_script):
-		global counter_rec
 	
 		# imports and Co
 		self.c = codegen_generator_helper.GeneratorHelper()
@@ -66,6 +65,13 @@ class OPCUAGeneratorClass():
 		self.c.write('from logging import setLogRecordFactory\n')
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
 		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
+
+		if type_script == "controller":
+			self.c.write('async def startRobXTask():\n')
+			self.c.indent()
+		else:
+			pass
+	
 
 		# create all blocks read from XML
 		for block in blocks:
@@ -78,7 +84,6 @@ class OPCUAGeneratorClass():
 				self.write_selectionblock(block)
 				self.c.indent()
 			elif block.blockName[0] == 'OnMessageReceive':
-				
 				self.write_messagelistener(block.blockSlotValue[1], block,type_script)
 			elif block.blockName[0] == 'SendMessage':
 				self.write_sendmessage(block, assetName)
@@ -150,17 +155,34 @@ class OPCUAGeneratorClass():
 	# write message listener to file
 	#--------------------------------------------
 	def write_messagelistener(self, message_name, block,type_scripts):
-		global counter_rec
+		global counter_control_rec,counter_script_rec
 
-		# if counter_rec > 0:
-		# 	self.c.dedent()
-		# 	self.c.dedent()
-		# else:
-		# 	pass
+		if type_scripts == "controller" and counter_control_rec == 0:
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+			counter_control_rec += 1
+		if type_scripts == "other_script" and counter_script_rec == 0:
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+			counter_script_rec += 1
 
-		self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
-		self.c.indent()
-		self.c.write('async for message in messages:\n\n')
+		if counter_control_rec > 1:
+			self.c.dedent()
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+
+		if counter_script_rec > 1:
+			self.c.dedent()
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+
 		self.c.indent()
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# This is the automatically generated message execution code\n')
@@ -169,7 +191,6 @@ class OPCUAGeneratorClass():
 		self.c.write('print("*** on_rxte__message__' + message_name + '__rxtx_helpers()")\n')
 		self.c.write('sMessage = str(message.payload.decode("utf-8")).strip()\n')
 		self.c.write('print("got Message: " + sMessage)\n\n')
-		counter_rec += 1
 
 	#--------------------------------------------
 	# write single skill block to file
