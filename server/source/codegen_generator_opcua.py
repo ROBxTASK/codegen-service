@@ -206,6 +206,7 @@ class OPCUAGeneratorClass():
 		self.c.write('print("*** on_rxte__message__' + message_name + '__rxtx_helpers()")\n')
 		self.c.write('sMessage = str(message.payload.decode("utf-8")).strip()\n')
 		self.c.write('print("got Message: " + sMessage)\n\n')
+		self.c.dedent()
 
 		# if type_scripts == "controller":
 		# 	counter_control_rec += 1
