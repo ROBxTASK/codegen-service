@@ -74,13 +74,18 @@ class OPCUAGeneratorClass():
 		# 	self.c.indent()
 		# else:
 		# 	pass
-		self.c.write('async def on_rxte__message__'+ block.blockSlotValue[1] +'__rxtx_helpers(messages):\n')
-		self.c.indent()
+
+		for block in blocks:
+			if block.blockName[0] == 'OnMessageReceive':
+				self.c.write('async def on_rxte__message__'+ block.blockSlotValue[1] +'__rxtx_helpers(messages):\n')
+				self.c.indent()
+			else:
+				pass
 	
 
 		# create all blocks read from XML
 		for block in blocks:
-			if block.blockName[0] == 'STATEMENT_ENDTAG': # end of control statement
+			if block.blockName[0] == 'STATEMENT_ENDTAG': # end of control statements
 				self.c.dedent()	
 			elif block.blockName[0] == 'Loop': # begin of control statement (Loop)
 				self.write_loopblock(block)
