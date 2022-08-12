@@ -60,7 +60,6 @@ class OPCUAGeneratorClass():
 	# dump all blocks of one asset to file
 	#--------------------------------------------
 	def dump_asset(self, filename, assetName, blocks,type_script):
-		counter = 0
 	
 		# imports and Co
 		self.c = codegen_generator_helper.GeneratorHelper()
@@ -70,24 +69,16 @@ class OPCUAGeneratorClass():
 		self.c.write('import robXTask.rxtx_helpers as rxtx_helpers\n\n')
 		self.c.write('import rxta_' + assetName + ' as rxta_' + assetName + '\n\n')
 
-		# if type_script == "controller":
-		# 	self.c.write('async def startRobXTask():\n')
-		# 	self.c.indent()
-		# else:
-		# 	pass
-
-		for block in blocks:
-			if block.blockName[0] == 'OnMessageReceive' and counter < 1:
-				self.c.write('async def on_rxte__message__'+ block.blockSlotValue[1] +'__rxtx_helpers(messages):\n')
-				self.c.indent()
-				counter += 1
-			else:
-				pass
+		if type_script == "controller":
+			self.c.write('async def startRobXTask():\n')
+			self.c.indent()
+		else:
+			pass
 	
 
 		# create all blocks read from XML
 		for block in blocks:
-			if block.blockName[0] == 'STATEMENT_ENDTAG': # end of control statements
+			if block.blockName[0] == 'STATEMENT_ENDTAG': # end of control statement
 				self.c.dedent()	
 			elif block.blockName[0] == 'Loop': # begin of control statement (Loop)
 				self.write_loopblock(block)
@@ -167,37 +158,34 @@ class OPCUAGeneratorClass():
 	# write message listener to file
 	#--------------------------------------------
 	def write_messagelistener(self, message_name, block,type_scripts):
-		# global counter_control_rec,counter_script_rec
+		global counter_control_rec,counter_script_rec
 
-		# if type_scripts == "controller" and counter_control_rec == 0:
-		# 	self.c.dedent()
-		# 	self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
-		# 	self.c.indent()
-		# 	self.c.write('async for message in messages:\n\n')
+		if type_scripts == "controller" and counter_control_rec == 0:
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
 			
-		# if type_scripts == "other_script" and counter_script_rec == 0:
-		# 	self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
-		# 	self.c.indent()
-		# 	self.c.write('async for message in messages:\n\n')
+		if type_scripts == "other_script" and counter_script_rec == 0:
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
 			
 
-		# if counter_control_rec > 0:
-		# 	self.c.dedent()
-		# 	self.c.dedent()
-		# 	self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
-		# 	self.c.indent()
-		# 	self.c.write('async for message in messages:\n\n')
+		if counter_control_rec > 0:
+			self.c.dedent()
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
 
-		# if counter_script_rec > 0:
-		# 	self.c.dedent()
-		# 	self.c.dedent()
-		# 	self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
-		# 	self.c.indent()
-		# 	self.c.write('async for message in messages:\n\n')
-
-
-		
-		self.c.write('async for message in messages:\n\n')
+		if counter_script_rec > 0:
+			self.c.dedent()
+			self.c.dedent()
+			self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
+			self.c.indent()
+			self.c.write('async for message in messages:\n\n')
+			
 		self.c.indent()
 		self.c.write('# ----------------------------------\n')
 		self.c.write('# This is the automatically generated message execution code\n')
@@ -206,12 +194,11 @@ class OPCUAGeneratorClass():
 		self.c.write('print("*** on_rxte__message__' + message_name + '__rxtx_helpers()")\n')
 		self.c.write('sMessage = str(message.payload.decode("utf-8")).strip()\n')
 		self.c.write('print("got Message: " + sMessage)\n\n')
-		self.c.dedent()
 
-		# if type_scripts == "controller":
-		# 	counter_control_rec += 1
-		# if type_scripts == "other_script":
-		# 	counter_script_rec += 1
+		if type_scripts == "controller":
+			counter_control_rec += 1
+		if type_scripts == "other_script":
+			counter_script_rec += 1
 
 
 
