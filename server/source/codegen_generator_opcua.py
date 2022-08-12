@@ -152,11 +152,11 @@ class OPCUAGeneratorClass():
 	def write_messagelistener(self, message_name, block,type_scripts):
 		global counter_rec
 
-		if counter_rec > 0:
-			self.c.dedent()
-			self.c.dedent()
-		else:
-			pass
+		# if counter_rec > 0:
+		# 	self.c.dedent()
+		# 	self.c.dedent()
+		# else:
+		# 	pass
 
 		self.c.write('async def on_rxte__message__'+ message_name +'__rxtx_helpers(messages):\n')
 		self.c.indent()
