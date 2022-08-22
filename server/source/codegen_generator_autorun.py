@@ -40,7 +40,7 @@ class AutoRunGeneratorClass():
 		self.c.write('[Desktop Entry]\n')
 		self.c.write('Version=v0.8.5\n')
 		self.c.write('Name='+ assetname +'_autorun_ubuntu\n')
-		self.c.write('Exec=bash -c "source /opt/ros/kinetic/setup.bash && source ~/ros_workspace/devel/setup.bash && rosrun rxt_skills_panda panda_action_client.py; sleep 50000"\n')
+		self.c.write('Exec=bash -c "source /opt/ros/kinetic/setup.bash && source ~/ros_workspace/devel/setup.bash && rosrun rxt_skills_'+str(assetname)+' '+str(assetname)+'_action_client.py; sleep 50000"\n')
 		self.c.write('Terminal=true\n')
 		self.c.write('Type=Application\n')
 		self.c.write('StartupNotify=true\n')
