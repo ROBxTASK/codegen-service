@@ -87,9 +87,8 @@ class ROSGeneratorClass():
 			else:
 				self.write_requestblock(block)
 		self.c.dedent()	
-		for i in block.blockName:
-			if i == 'Selection':
-				self.c.dedent()	
+		if block.blockName[0] == 'Selection':
+			self.c.dedent()	
 		
 		# function: main close
 		self.c.write('except rospy.ROSInterruptException:\n')
