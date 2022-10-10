@@ -127,9 +127,8 @@ class ROSGeneratorClass():
 			returnName = 'isOK'
 		self.c.write('print(\"Result was: \" + str(result.'+returnName+'))\n')
 		self.c.dedent()	
-		self.c.write('print (\'----------------------------------\')\n\n')
-		if block.blockName[0] == 'Selection':
-			self.c.dedent()
+		self.c.write('print(\'----------------------------------\')\n\n')
+		self.c.write(block.blockName[0])
 		
 
 	#--------------------------------------------
