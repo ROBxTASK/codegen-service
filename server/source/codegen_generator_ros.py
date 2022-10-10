@@ -83,7 +83,7 @@ class ROSGeneratorClass():
 				self.c.indent()
 			elif block.blockName[0] == 'Selection': # begin of control statement (Selection)
 				self.write_selectionblock(block)
-				self.c.indent()
+				# self.c.indent()
 			else:
 				self.write_requestblock(block)
 		self.c.dedent()			
