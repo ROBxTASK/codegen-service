@@ -83,10 +83,13 @@ class ROSGeneratorClass():
 				self.c.indent()
 			elif block.blockName[0] == 'Selection': # begin of control statement (Selection)
 				self.write_selectionblock(block)
-				self.c.dedent()
+				# self.c.indent()
 			else:
 				self.write_requestblock(block)
-		self.c.dedent()			
+		self.c.dedent()	
+		for i in block.blockName:
+			if i == 'Selection':
+				self.c.dedent()	
 		
 		# function: main close
 		self.c.write('except rospy.ROSInterruptException:\n')
