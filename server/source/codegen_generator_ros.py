@@ -128,9 +128,7 @@ class ROSGeneratorClass():
 		self.c.write('print(\"Result was: \" + str(result.'+returnName+'))\n')
 		self.c.dedent()	
 		self.c.write('print(\'----------------------------------\')\n\n')
-		for i in block.blockName:
-			self.c.write(i)
-		
+
 
 	#--------------------------------------------
 	# write a simple loop block to file
