@@ -128,6 +128,9 @@ class ROSGeneratorClass():
 		self.c.write('print(\"Result was: \" + str(result.'+returnName+'))\n')
 		self.c.dedent()	
 		self.c.write('print (\'----------------------------------\')\n\n')
+		if block.blockName[0] == 'Selection':
+			self.c.dedent()
+		
 
 	#--------------------------------------------
 	# write a simple loop block to file
