@@ -83,12 +83,10 @@ class ROSGeneratorClass():
 				self.c.indent()
 			elif block.blockName[0] == 'Selection': # begin of control statement (Selection)
 				self.write_selectionblock(block)
-				# self.c.indent()
+				self.c.indent()
 			else:
 				self.write_requestblock(block)
-		self.c.dedent()	
-		if block.blockName[0] == 'Selection':
-			self.c.dedent()	
+		self.c.dedent()			
 		
 		# function: main close
 		self.c.write('except rospy.ROSInterruptException:\n')
@@ -129,8 +127,7 @@ class ROSGeneratorClass():
 			returnName = 'isOK'
 		self.c.write('print(\"Result was: \" + str(result.'+returnName+'))\n')
 		self.c.dedent()	
-		self.c.write('print(\'----------------------------------\')\n\n')
-
+		self.c.write('print (\'----------------------------------\')\n\n')
 
 	#--------------------------------------------
 	# write a simple loop block to file
@@ -156,4 +153,4 @@ class ROSGeneratorClass():
 		self.c.write('print (\'Generated Selection\')\n')
 		self.c.write('print (\'----------------------------------\')\n')
 		self.c.write('if ' + slotValue + ':\n\n')
-		self.c.indent()
+		
