@@ -152,4 +152,4 @@ class ROSGeneratorClass():
 		self.c.write('print (\'----------------------------------\')\n')
 		self.c.write('print (\'Generated Selection\')\n')
 		self.c.write('print (\'----------------------------------\')\n')
-		self.c.write('if ' + slotValue + ':'+self.c.dedent()+'\n\n')
+		self.c.write('if ' + slotValue + ':\n\n')
