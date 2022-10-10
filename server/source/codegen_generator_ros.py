@@ -129,8 +129,7 @@ class ROSGeneratorClass():
 		self.c.dedent()	
 		self.c.write('print(\'----------------------------------\')\n\n')
 		for i in block.blockName:
-			if i == "Selection":
-				self.c.dedent()
+			self.c.write(i)
 		
 
 	#--------------------------------------------
