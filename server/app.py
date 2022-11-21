@@ -45,11 +45,8 @@ def generate_executable_code(bIsSimulEnv):
 		# creates either ROS action clients for every found asset OR
 		# creates OPCUA agent for every found asset
 		if bIsSimulEnv == 'false':
-			try:
-				ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
-				ros_gen.dump_all(outputFileName)
-			except ValueError as err:
-				return str(err)
+			ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
+			ros_gen.dump_all(outputFileName)
 				
 			stream = BytesIO()
 			with ZipFile(stream, 'w') as zf:
@@ -65,11 +62,8 @@ def generate_executable_code(bIsSimulEnv):
 			print ("Generation of ROS action client files succesfull!")
 			print ("-----------------------------------------------------")
 		elif bIsSimulEnv == 'true':
-			try:
-				ros_gen = codegen_generator_opcua.OPCUAGeneratorClass('_client_py', xml_parser.getList())
-				ros_gen.dump_all(outputFileName)
-			except ValueError as err:
-				return str(err)
+			ros_gen = codegen_generator_opcua.OPCUAGeneratorClass('_client_py', xml_parser.getList())
+			ros_gen.dump_all(outputFileName)
 
 			stream = BytesIO()
 			with ZipFile(stream, 'w') as zf:
@@ -109,7 +103,7 @@ def add_cors_headers(response):
 
 @app.errorhandler(Exception)          
 def basic_error(e):          
-    return str(e)
+    return str(e), 500, {'Content-Type': 'text/plain'}
 
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=8083)
