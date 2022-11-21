@@ -49,7 +49,7 @@ def generate_executable_code(bIsSimulEnv):
 				ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
 				ros_gen.dump_all(outputFileName)
 			except Exception:
-				return Exception.message
+				return Exception
 				
 			stream = BytesIO()
 			with ZipFile(stream, 'w') as zf:
@@ -69,8 +69,8 @@ def generate_executable_code(bIsSimulEnv):
 				ros_gen = codegen_generator_opcua.OPCUAGeneratorClass('_client_py', xml_parser.getList())
 				ros_gen.dump_all(outputFileName)
 			except Exception:
-				return Exception.message
-				
+				return Exception
+
 			stream = BytesIO()
 			with ZipFile(stream, 'w') as zf:
 				for file in glob(os.path.join(outputFileName, '*')):
