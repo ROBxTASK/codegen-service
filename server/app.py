@@ -45,8 +45,12 @@ def generate_executable_code(bIsSimulEnv):
 		# creates either ROS action clients for every found asset OR
 		# creates OPCUA agent for every found asset
 		if bIsSimulEnv == 'false':
-			ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
-			ros_gen.dump_all(outputFileName)
+			try:
+				ros_gen = codegen_generator_ros.ROSGeneratorClass('_client_py', xml_parser.getList())
+				ros_gen.dump_all(outputFileName)
+			except Exception:
+				return Exception.message
+				
 			stream = BytesIO()
 			with ZipFile(stream, 'w') as zf:
 				for file in glob(os.path.join(outputFileName, '*')):
@@ -61,8 +65,12 @@ def generate_executable_code(bIsSimulEnv):
 			print ("Generation of ROS action client files succesfull!")
 			print ("-----------------------------------------------------")
 		elif bIsSimulEnv == 'true':
-			ros_gen = codegen_generator_opcua.OPCUAGeneratorClass('_client_py', xml_parser.getList())
-			ros_gen.dump_all(outputFileName)
+			try:
+				ros_gen = codegen_generator_opcua.OPCUAGeneratorClass('_client_py', xml_parser.getList())
+				ros_gen.dump_all(outputFileName)
+			except Exception:
+				return Exception.message
+				
 			stream = BytesIO()
 			with ZipFile(stream, 'w') as zf:
 				for file in glob(os.path.join(outputFileName, '*')):

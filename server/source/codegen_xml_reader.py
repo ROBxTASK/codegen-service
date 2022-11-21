@@ -104,6 +104,9 @@ class XML_BlocklyProject_Parser():
 				
 			elif(entry.tag=="{https://developers.google.com/blockly/xml}field"):
 				print ("Found <field>-attribute with name = " + entry.attrib.get('name'))	
+
+				if entry.text == "":
+					raise Exception("ERROR: A block with empty text was found in your design. Please first remove the empty text element and try again.")
 				blocks[blockCounter].blockSlotValue.append(entry.text)	
 				
 			else:
