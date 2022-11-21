@@ -107,5 +107,9 @@ def add_cors_headers(response):
 	response.headers.add('Access-Control-Expose-Headers', 'Content-Disposition')
 	return response
 
+@app.errorhandler(Exception)          
+def basic_error(e):          
+    return str(e)
+
 if __name__ == "__main__":
     app.run(debug=True,host='0.0.0.0',port=8083)
