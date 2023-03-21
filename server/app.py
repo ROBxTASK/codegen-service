@@ -95,7 +95,7 @@ def generate_executable_code(bIsSimulEnv):
 ########################################################
 ################# register swagger ui ##################
 ########################################################
-@app.route(f"/codege/dynamic/<string:bIsSimulEnv>", methods=['POST', 'PUT'])
+@app.route(f"/codegen/dynamic/<string:bIsSimulEnv>", methods=['POST', 'PUT'])
 def generate_executable_code_dynamic(bIsSimulEnv):
 	
 	content_type = request.headers.get('Content-Type')
