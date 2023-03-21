@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="x2:jC8H1p-e{wMK3k=,f" x="16" y="8">
+      <value name="asset">
+         <block type="Text" id="WRp|kTwk}T+$`xf#8BbC" editable="false">
+            <field name="text">MiR 100 Mobile Platform</field>
+         </block>
+      </value>
+      <next>
+         <block type="MoveToPosition" id="_5%ql[Ff2OWmLftcaX,S">
+            <value name="position">
+               <block type="Text" id="49pMO6o)ZXBn~95g7Si^">
+                  <field name="text">Couch</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+</xml>

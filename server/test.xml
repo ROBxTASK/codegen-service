@@ -1,0 +1,18 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="sI)`gF24`v@?BbE]XVMv">hi</variable>
+</variables>
+<block type="variables_set" id=".jgH@8%%=UJ6fcla79@y" x="184" y="146">
+<field name="VAR" id="sI)`gF24`v@?BbE]XVMv">hi</field>
+<value name="VALUE">
+<block type="GetData_-_rxta_UCI2aUr10_-_DynamicBlock" id="qj.6,xgo=dD:oiXwHhbP">
+<field name="endpoint">rxta_UCI2aUr10.enVariables.GrabObject_State</field>
+</block>
+</value>
+<next>
+<block type="PutObject_-_rxta_UCI2aUr10_-_DynamicBlock" id="/:O=fJ-JPp%@rzjG(4RX">
+<field name="sTargetLocation">Slide_A</field>
+</block>
+</next>
+</block>
+</xml>

@@ -1,0 +1,19 @@
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="SetAsset" id="#nXFI94)g?+QHUf8H50d" x="71" y="50">
+    <value name="asset">
+      <block type="Text" id="|xICn*KTYI5tdlZw@DUb" editable="false">
+        <field name="text">MiR 100 Mobile Platform</field>
+      </block>
+    </value>
+    <next>
+      <block type="MoveToLocation" id="TDUMf7M{,jLgO8hQ]HlJ">
+        <value name="location">
+          <block type="Text" id="lj3*)rk?JwFYKvNa:(en">
+            <field name="text">Wohnzimmer</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+</xml>

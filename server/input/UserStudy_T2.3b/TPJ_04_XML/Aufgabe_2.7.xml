@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="HhBW,UdMJ}UQ_}-4}MWR" x="385" y="132">
+      <value name="asset">
+         <block type="Text" id="C^.I$*wa_]mHcQ^%;LlW" editable="false">
+            <field name="text">Fitbit Smartwatch</field>
+         </block>
+      </value>
+      <next>
+         <block type="MeasureHydration" id="Lnd500]|I[X}FIZY^JH)">
+            <value name="measurementInterval">
+               <block type="Text" id="*Ogx8JJdyhWZAVy?5jfp">
+                  <field name="text">60 min</field>
+               </block>
+            </value>
+            <value name="alarmThreshold">
+               <block type="Text" id="4%UntFe:t~cQ4p8x@MQd">
+                  <field name="text">50</field>
+               </block>
+            </value>
+            <next>
+               <block type="SendMessage" id="31YMthzDDGR17l{U5#nx">
+                  <field name="messageType">MQTT</field>
+                  <value name="messageContent">
+                     <block type="Text" id="X%+3m~[1-+[sJ;8sx?G!">
+                        <field name="text">Wasser</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="E~Ziaw||!pq{U1|:ma2M" x="380" y="305">
+      <value name="asset">
+         <block type="Text" id="]oW6,!~lzo5ypXdD/wt." editable="false">
+            <field name="text">Q.bo One</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="MfhyN_TSoU^[6arl$p+[">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="RQz}$*DpOwpsDH7++)#+">
+                  <field name="text">Wasser</field>
+               </block>
+            </value>
+            <next>
+               <block type="VoiceOutput" id="-AQcg9+?sG}}IR8!ZNM2">
+                  <value name="outputMessage">
+                     <block type="Text" id="v|aK|St373KJU%Cz{V.;">
+                        <field name="text">Sie müssen etwas trinken.</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="MoveToPosition" id="dEE^DC`Sk)HiVLDQfW`F">
+                        <value name="position">
+                           <block type="Text" id="2zyestk[~Cp_H)}Xg{qD">
+                              <field name="text">Küche - Abwasch</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="SendMessage" id="4-~429u8:lUbZFk)]a{D">
+                              <field name="messageType">MQTT</field>
+                              <value name="messageContent">
+                                 <block type="Text" id="+|I(}Hqo}!6szK2f4Jc}">
+                                    <field name="text">Glas - Wasser</field>
+                                 </block>
+                              </value>
+                           </block>
+                        </next>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="-@eq95zVXc@T{m1xmvUU" x="380" y="474">
+      <value name="asset">
+         <block type="Text" id="mlf7`VB.wmu!s%[{626+" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id=".$eyKfS=fH4;+C]#.5-+">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="yjGNQwOhf6C:kYV2SZ:[">
+                  <field name="text">Glas - Wasser</field>
+               </block>
+            </value>
+            <next>
+               <block type="GrabObject" id="yot^/NptA,|1Q8!)^2lA">
+                  <value name="objectType">
+                     <block type="Text" id="=6UMI3(ktr3lBRy:gLo.">
+                        <field name="text">Glas Wasser</field>
+                     </block>
+                  </value>
+                  <value name="objectPosition">
+                     <block type="Text" id="Pp#BmuWIi2).a$y27DDC">
+                        <field name="text">Abwasch</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="PutObject" id="lUJT]Z|Ae6Di3]wNF].F">
+                        <value name="position">
+                           <block type="Text" id="BrtGffwR}n8Gz;MTQxZF">
+                              <field name="text">Tisch</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

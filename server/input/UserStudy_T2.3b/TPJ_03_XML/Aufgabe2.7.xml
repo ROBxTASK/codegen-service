@@ -1,0 +1,114 @@
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="SetAsset" id="C6uKYm0cWjqMzxEAI._u" x="119" y="65">
+    <value name="asset">
+      <block type="Text" id="xOqP?^xe;(q(}%ZbJBQB" editable="false">
+        <field name="text">ARTI Chasi</field>
+      </block>
+    </value>
+    <next>
+      <block type="MoveToLocation" id="Lm;NHJ1YR(=ZZBOs]V7J">
+        <value name="location">
+          <block type="Text" id="TGM:a8x;s({L5u1s6U*S">
+            <field name="text">1</field>
+          </block>
+        </value>
+        <next>
+          <block type="SendMessage" id="W{]Y=e%1*P+7zWG.6/Uc">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+              <block type="Text" id="l_}(U.UiE|pk%2:]jGSl">
+                <field name="text">bin in 1 angekommen</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="SetAsset" id="s.da5*f!Eqqm_Q*#-S{2" x="117" y="171">
+    <value name="asset">
+      <block type="Text" id="iZe$HHSBpe;?N{o(]g]h" editable="false">
+        <field name="text">Camera system</field>
+      </block>
+    </value>
+    <next>
+      <block type="OnMessageReceive" id="?ni%ILpT2/N:/*7R+RU)">
+        <field name="messageType">MQTT</field>
+        <value name="messageContent">
+          <block type="Text" id="-u`=qwvQD]{+T-pay#ID">
+            <field name="text">bin in 1 angekommen</field>
+          </block>
+        </value>
+        <next>
+          <block type="DetectObject" id="r{CbJ:97.k-PUPwjM$tz">
+            <value name="object">
+              <block type="Text" id="f-AJEyVvgNB[MI7mVXKd">
+                <field name="text">Box</field>
+              </block>
+            </value>
+            <next>
+              <block type="SendMessage" id="5Iaoy76(~|UZf!LnW-ET">
+                <field name="messageType">OPC-UA</field>
+                <value name="messageContent">
+                  <block type="Text" id="yjF}|!+y25b:U*pYqByw">
+                    <field name="text">hab eine Box entdeckt</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="TeachingObjectRecognition" id="gGW(7P4Tl.+i}u},$=j)">
+                    <value name="objData">
+                      <block type="Text" id="Q-Isv|0-cix,qS]JX1|?">
+                        <field name="text">Box</field>
+                      </block>
+                    </value>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="SetAsset" id="Yf{|vS}im0?3s^Wj!vjY" x="117" y="348">
+    <value name="asset">
+      <block type="Text" id="?G0S{Uy6e3Kfwxt2re#w" editable="false">
+        <field name="text">Franka Panda</field>
+      </block>
+    </value>
+    <next>
+      <block type="OnMessageReceive" id="ti*wiz?i3^t,Z$~Y;XF}">
+        <field name="messageType">OPC-UA</field>
+        <value name="messageContent">
+          <block type="Text" id="Ljt#8L$8D)2SgdX.m)?l">
+            <field name="text">hab eine Box entdeckt</field>
+          </block>
+        </value>
+        <next>
+          <block type="GrabObject" id="G8Jhg=_H9na=anbp7qA/">
+            <value name="objectType">
+              <block type="Text" id="~`wGw$1C;JEz2`5GnD#i">
+                <field name="text">Box</field>
+              </block>
+            </value>
+            <value name="objectPosition">
+              <block type="Text" id="PN1IzO:wy^0+=OIBk1K)">
+                <field name="text">Boden</field>
+              </block>
+            </value>
+            <next>
+              <block type="PutObject" id="9gbxp7UJ3cDPQWh0dR}:">
+                <value name="position">
+                  <block type="Text" id=")GTsVM3JXY-$FNYE||k%">
+                    <field name="text">Tisch</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

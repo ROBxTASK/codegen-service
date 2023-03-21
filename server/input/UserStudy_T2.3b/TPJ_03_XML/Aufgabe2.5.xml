@@ -1,0 +1,33 @@
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="SetAsset" id=":$596A{HpeO;yl|Q^(+-" x="27" y="44">
+    <value name="asset">
+      <block type="Text" id="hagOtJo.`Bj8tFICQ(j9" editable="false">
+        <field name="text">Fitbit Smartwatch</field>
+      </block>
+    </value>
+    <next>
+      <block type="MeasureHydration" id="iK*.pJVdS,G[QLP-iCy_">
+        <value name="measurementInterval">
+          <block type="Text" id="i(57sm_z(N{GcL!)+d;G">
+            <field name="text">60 Minuten </field>
+          </block>
+        </value>
+        <value name="alarmThreshold">
+          <block type="Text" id="zb%1X~UTBQUM9h.|1Ljr">
+            <field name="text">50</field>
+          </block>
+        </value>
+        <next>
+          <block type="VoiceOutput" id="~!zn;,mb*jI*gAtfbSSj">
+            <value name="outputMessage">
+              <block type="Text" id="emZ=QQZOKq66aa8lWl3m">
+                <field name="text">ALARM!!!</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

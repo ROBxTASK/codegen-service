@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="OEl)DcGf7uR`UMZHzu!:" x="316" y="78">
+      <value name="asset">
+         <block type="Text" id="9,Z|]#S]W$bM{@Fq^R:`" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="Loop" id="QbZ0|9w*l`O}jUh92XFV">
+            <value name="repeat">
+               <block type="Text" id=";S}cLi+0MnT|VP:b+Hru">
+                  <field name="text">X=8</field>
+               </block>
+            </value>
+            <statement name="statement">
+               <block type="Selection" id="=[.bN/8B4l.E%O7loMgl">
+                  <value name="condition">
+                     <block type="Text" id="wKb`Trd)gi(t7B^LZFf^">
+                        <field name="text">A==B</field>
+                     </block>
+                  </value>
+                  <statement name="statement">
+                     <block type="MoveToLocation" id="l_:i$t7$9nFlSda,9wv1">
+                        <value name="location">
+                           <block type="Text" id="gWx6cnk$r`{I:{yQ6?F$">
+                              <field name="text">3</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="Selection" id="U_II?X1mcx#)n*U^nCP`">
+                              <value name="condition">
+                                 <block type="Text" id="U23E*0l|`jwVmjG70ib#">
+                                    <field name="text">A==B</field>
+                                 </block>
+                              </value>
+                              <statement name="statement">
+                                 <block type="MoveToLocation" id="yqKUu!_oovZ9M7D:Q5qN">
+                                    <value name="location">
+                                       <block type="Text" id="AH3n{yDw#(N+KdXh};Jz">
+                                          <field name="text">7</field>
+                                       </block>
+                                    </value>
+                                 </block>
+                              </statement>
+                           </block>
+                        </next>
+                     </block>
+                  </statement>
+               </block>
+            </statement>
+            <next>
+               <block type="SendMessage" id="w^V31Z]-ge~T4@^O/B^B">
+                  <field name="messageType">MQTT</field>
+                  <value name="messageContent">
+                     <block type="Text" id="K8`34]xw!2LNSBSFr5|s">
+                        <field name="text">START_PROCESS</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="bKC2E9=@w3$~K$+1bD8_" x="319" y="402">
+      <value name="asset">
+         <block type="Text" id="qPr}~xQn@ekP~P~Qg_0e" editable="false">
+            <field name="text">Q.bo One</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="3,rejGg|MG1o3Dix]f$_">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="b:5*V8)Nnh*#B,?.U3zT">
+                  <field name="text">START_PROCESS</field>
+               </block>
+            </value>
+            <next>
+               <block type="Loop" id="L8vfKkDyhrGLIQJzPJ1^">
+                  <value name="repeat">
+                     <block type="Text" id="7H7T3~wvsu0A`M!46u|{">
+                        <field name="text">X=3</field>
+                     </block>
+                  </value>
+                  <statement name="statement">
+                     <block type="MoveToLocation" id="KUhmW?N;ml]:b*|pYm+-">
+                        <value name="location">
+                           <block type="Text" id="^RkP,4Y`J*rk,_rGT.;I">
+                              <field name="text">1</field>
+                           </block>
+                        </value>
+                        <next>
+                           <block type="Loop" id="Kjn4S@C.3fKsR9y%2lGg">
+                              <value name="repeat">
+                                 <block type="Text" id="220_epNbBtWPfU5J]ZWJ">
+                                    <field name="text">X=3</field>
+                                 </block>
+                              </value>
+                              <statement name="statement">
+                                 <block type="MoveToLocation" id="_d;CY67@sm`43D|T5Ali">
+                                    <value name="location">
+                                       <block type="Text" id="OvwUCOL:kx9kt7hcU~KE">
+                                          <field name="text">4</field>
+                                       </block>
+                                    </value>
+                                 </block>
+                              </statement>
+                           </block>
+                        </next>
+                     </block>
+                  </statement>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

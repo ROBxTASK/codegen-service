@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="|5He#eT7+kSqyx-667%C" x="16" y="8">
+      <value name="asset">
+         <block type="Text" id="h)o[0BPaDvdWw_1D9UIY" editable="false">
+            <field name="text">Fitbit Smartwatch</field>
+         </block>
+      </value>
+      <next>
+         <block type="MeasureHydration" id="S@TC[0F1,EsIZ#|]W^(6">
+            <value name="measurementInterval">
+               <block type="Text" id="^L5N(lX9f}p}LZt-];R.">
+                  <field name="text">60min</field>
+               </block>
+            </value>
+            <value name="alarmThreshold">
+               <block type="Text" id="K}pCS~tO0+a5{?hP@,o{">
+                  <field name="text">50</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+</xml>

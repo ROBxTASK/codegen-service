@@ -1,0 +1,465 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+<variables>
+<variable id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</variable>
+<variable id="0}amfnQ?[*q-5-ZXE~$@">hi</variable>
+<variable id="-F#dV{prtjd@fALZcY_y">panda_status</variable>
+</variables>
+<block type="variables_set" id="%yx0.Ai`:;4nAW7W?)mE" x="126" y="0">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="m?xG0.ie|MTp_r64zH1}">
+<field name="NUM">10</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="qJ0kgm_-c]xbhdb{,z@k">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_number" id="9YamF+SC?iV3=[zgABLq">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="controls_whileUntil" id="Ka5?7*V[29[)R2L[H}^}">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_compare" id="OT}gzM/ob9]jjNaC9Z+b">
+<field name="OP">LT</field>
+<value name="A">
+<block type="variables_get" id="wTFwg7jEpYgScp8yN(_V">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="~8WGXxU|[j,=cDJr`z8q">
+<field name="NUM">13</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="variables_set" id="N^NN6bw;,?0kwZKjk!Ig">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_arithmetic" id="f#upz0^?t7Do^2yeeK_Y">
+<field name="OP">ADD</field>
+<value name="A">
+<block type="variables_get" id="cc(WHNxxs)*ESjE!MO`+">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="e^jXO71PT?m5qyUquoHj">
+<field name="NUM">1</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="gT:Ct*/@[W`y:V{VNAJt">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="0P@PY{#@?*!^K(c`FkEs">
+<field name="OP">NEQ</field>
+<value name="A">
+<block type="variables_get" id="U,YbhMU*5UN6er`rqo-s">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="]|LzUg[Af*YkNIouS4RK">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="^)cn=|jR5l/F50r_$BJ+">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id=".Ca35?eArF1.o.Hn}o6i">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="M3or:v:]{T1MhGoZ!`~I">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="JbA{1OwY[WwEp;kE].!;">
+<field name="NUM">12</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="mz42qn|@msq_H{b6jZ3Z">
+<field name="location">pack pose</field>
+<next>
+<block type="controls_repeat_ext" id="VMriMJoybI[I{/KSzEsr">
+<value name="TIMES">
+<block type="math_number" id="kEb/M,kQWA(AC8a96]?~">
+<field name="NUM">2</field>
+</block>
+</value>
+<statement name="DO">
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="dPBD+C:0NlWs!|c,4R[8">
+<field name="location">cups init</field>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="+X.gcDkX/|G{(F@F`}2c">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="VnPIq3`9g0Ina:AQFdeV">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="F+Y}k^kAu?%jTarEQAWr">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_number" id=":S5LQyqE|:AV9=G8`LZj">
+<field name="NUM">13</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="variables_set" id="aza0F@JKi!sQ(J:hi^0X">
+<field name="VAR" id="-F#dV{prtjd@fALZcY_y">panda_status</field>
+<value name="VALUE">
+<block type="GetData_-_30:9c:23:84:fe:51_-_DynamicBlock" id="]1nKN]Wgl}U_DaLdw(Co">
+<value name="inputData">
+<block type="text" id="AVZal.dDWp):g}%CjQKN">
+<field name="TEXT">void</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="controls_if" id="V~jSZrO{o@3WThJk(HK,">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="ValjvR7m7A7.NVpE1!|R">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="]2o|Kl^hcAI#7{3Pw?^N">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="DugTw%KKx}-J3zF~4}9v">
+<field name="NUM">15</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="MoveToLocation_-_30:9c:23:84:fe:51_-_DynamicBlock" id="(l(dz2v}UMT7sMH5xAHj">
+<field name="location">pack pose</field>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="|z2ssQ6qCo[17.bk)q!.">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="YoRw(yWZhz:}/7X!bA9W">
+<field name="NUM">14</field>
+</block>
+</value>
+</block>
+</statement>
+<next>
+<block type="variables_set" id="lje7%8pfV/==W|PV,e0X">
+<field name="VAR" id="-F#dV{prtjd@fALZcY_y">panda_status</field>
+<value name="VALUE">
+<block type="WaitForUserInput_-_30:9c:23:84:fe:51_-_DynamicBlock" id="U{~`?p*/a{mw5{qvxO6n">
+<value name="inputContent">
+<block type="text" id="m)D*!Om)xH;(~6/$^XtQ">
+<field name="TEXT">void</field>
+</block>
+</value>
+</block>
+</value>
+<next>
+<block type="PutObject_-_30:9c:23:84:fe:51_-_DynamicBlock" id="/2;Vpvf)nG{_+_u%t%,0">
+<value name="position">
+<block type="text" id="}AX6C3olE@j:93n5/G`T">
+<field name="TEXT">2</field>
+</block>
+</value>
+<next>
+<block type="WaitForExternalEvent_-_30:9c:23:84:fe:51_-_DynamicBlock" id="bkJ=r.N%X=~y{C4?cWjE">
+<value name="inputText">
+<block type="text" id="!c!lShRy+E|sjtj_31K#">
+<field name="TEXT">void</field>
+</block>
+</value>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+<block type="variables_set" id="oB+,%51;eE@eU~2?VE8R" x="582" y="0">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="skV}Bt9-o:TL(11@Tt2?">
+<field name="NUM">67</field>
+</block>
+</value>
+<next>
+<block type="variables_set" id="$PM,ShQpzCxWF2(n4O5e">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+<value name="VALUE">
+<block type="math_number" id="m50~IxjVT8,LW=ONow?e">
+<field name="NUM">1</field>
+</block>
+</value>
+<next>
+<block type="controls_if" id="xD=91m)d]4.+J=l}b]}2">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="(a1!2_HB;s`qmoErXgdQ">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="LvB:YJ3s~PgB]O^[X6EK">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="jH,nuJ96Ylv(A=}~0b7c">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="controls_if" id="aEPKWz-keae9BN3JdF4{">
+<mutation else="1"/>
+<value name="IF0">
+<block type="logic_compare" id="o{Z+n4K-ai/=g(m_PXb4">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="Ha(YG07{Vh!rJ`/IZxu6">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="_SCU`-w$JmMUbNAoea8_">
+<field name="NUM">12</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="MoveToLocation_-_00:e0:4c:68:02:30_-_DynamicBlock" id="VKpm}=IzA,)gyP|XbVJ*">
+<field name="location">camera turn</field>
+<next>
+<block type="controls_repeat_ext" id="x]1UQJ;,fW{N%kv}fzqi">
+<value name="TIMES">
+<block type="math_number" id=",a%m.$gAizefD,1L8E:c">
+<field name="NUM">2</field>
+</block>
+</value>
+<statement name="DO">
+<block type="MoveToLocation_-_00:e0:4c:68:02:30_-_DynamicBlock" id="uEd`!ADj7UYWcF2]vIrT">
+<field name="location">parking slot</field>
+</block>
+</statement>
+<next>
+<block type="MoveToLocation_-_00:e0:4c:68:02:30_-_DynamicBlock" id="c=^_L,nk5a7)eGbuPF%=">
+<field name="location">patient room</field>
+</block>
+</next>
+</block>
+</next>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="variables_set" id="!gNx/XX(u}uXC%+HZ[OX">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+<value name="VALUE">
+<block type="math_number" id="YXZWD2n7S/co?[@JiBw{">
+<field name="NUM">10</field>
+</block>
+</value>
+</block>
+</statement>
+</block>
+</statement>
+<statement name="ELSE">
+<block type="MoveToLocation_-_00:e0:4c:68:02:30_-_DynamicBlock" id="ScrE6sV9jW:41hkt}rhw">
+<field name="location">patient room</field>
+</block>
+</statement>
+<next>
+<block type="controls_whileUntil" id="%yzHmQ.|iBwe+).,m`PG">
+<field name="MODE">UNTIL</field>
+<value name="BOOL">
+<block type="logic_compare" id="Rw?Zt~UL5/^9zu0W}QUz">
+<field name="OP">LT</field>
+<value name="A">
+<block type="variables_get" id="2c/]zOdbJ;hmF)#SCv!H">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="}-[?fxO/agnBr5naSB(!">
+<field name="NUM">15</field>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="MoveToLocation_-_00:e0:4c:68:02:30_-_DynamicBlock" id="$8@|uMP=r){(bsk.zGXv">
+<field name="location">parking slot</field>
+</block>
+</statement>
+<next>
+<block type="GraphicalUserInteraction_-_00:e0:4c:68:02:30_-_DynamicBlock" id="~8R$O2Q6HYsJ)~ox|S)Y">
+<value name="outputMessage">
+<block type="text" id="TsH4vfcs0bd!$PhKse8U">
+<field name="TEXT">rviz</field>
+</block>
+</value>
+<next>
+<block type="SendMessage" id="xb|T$4jxdx:laJlo(|ym">
+<field name="messageType">ROS</field>
+<value name="messageContent">
+<block type="text" id="I*GB(?oS.lco6HgFS]t3">
+<field name="TEXT">hello</field>
+</block>
+</value>
+<next>
+<block type="OnMessageReceive" id="3B+yPpKGn]40I0ruPgZ^">
+<field name="messageType">ROS</field>
+<value name="messageContent">
+<block type="text" id="pdB*{AlfMKa=QbR=c.IU">
+<field name="TEXT">world</field>
+</block>
+</value>
+<next>
+<block type="controls_whileUntil" id="xw~:~-1(AziO(EYxS;ZS">
+<field name="MODE">WHILE</field>
+<value name="BOOL">
+<block type="logic_operation" id="7u}63nzlhm9Kyzpyx=E^">
+<field name="OP">AND</field>
+<value name="A">
+<block type="logic_compare" id="siHfX*i|%.tCmZpzQ7G5">
+<field name="OP">LT</field>
+<value name="A">
+<block type="variables_get" id="BQjnqUjdw{]+VzG-pDTf">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="yL=C8qXfd`Tbj2mqfo[V">
+<field name="NUM">15</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="=`|=N0p6Ac70OHO]olhD">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="Go@wRE#7E*R^cQjDX!lZ">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="E~EW1=LBO]l6QDhtz.md">
+<field name="NUM">12</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO">
+<block type="MoveToLocation_-_00:e0:4c:68:02:30_-_DynamicBlock" id="m$_N|QZ`+d!;oswWGMCm">
+<field name="location">patient room</field>
+</block>
+</statement>
+<next>
+<block type="controls_if" id="JUpo9!!0l.PN(^EB`0;)">
+<value name="IF0">
+<block type="logic_operation" id="qjw[^48mf{taHIqWS3W:">
+<field name="OP">OR</field>
+<value name="A">
+<block type="logic_compare" id="rG{,KAD=EwtfoV_Fh2|L">
+<field name="OP">GT</field>
+<value name="A">
+<block type="variables_get" id="ngwRb5N0P5nabHs_(]g1">
+<field name="VAR" id="Tpwm^lZ@Qp=lHQ*_wgo6">hello</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="*zXU.87RBtls#(8#vG8_">
+<field name="NUM">15</field>
+</block>
+</value>
+</block>
+</value>
+<value name="B">
+<block type="logic_compare" id="_cKfZ`z+2V2*#-#aVMB=">
+<field name="OP">EQ</field>
+<value name="A">
+<block type="variables_get" id="|VWbv.85sWEOu1m61`2S">
+<field name="VAR" id="0}amfnQ?[*q-5-ZXE~$@">hi</field>
+</block>
+</value>
+<value name="B">
+<block type="math_number" id="x2o`NqqN86$4_p}0{d%-">
+<field name="NUM">12</field>
+</block>
+</value>
+</block>
+</value>
+</block>
+</value>
+<statement name="DO0">
+<block type="MoveToLocation_-_00:e0:4c:68:02:30_-_DynamicBlock" id="Smv,tQ4.t3d8$SF%b$MK">
+<field name="location">parking slot</field>
+</block>
+</statement>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</next>
+</block>
+</xml>

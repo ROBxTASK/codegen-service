@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="cmAFS!CnRo@Gs909uyr+" x="354" y="120">
+      <value name="asset">
+         <block type="Text" id="A#Ei4U5XPPq*g(l=/tDM" editable="false">
+            <field name="text">Q.bo One</field>
+         </block>
+      </value>
+      <next>
+         <block type="WaitForUserInput" id="_.Y%yk?wh.Co$S8KO1_v">
+            <field name="inputMode">speech</field>
+            <value name="inputContent">
+               <block type="Text" id="2GZq=jfEL_O4|Hp=(K|]">
+                  <field name="text">Zeitung holen</field>
+               </block>
+            </value>
+            <next>
+               <block type="VoiceOutput" id="v233)s6,sesaB4KRKg^_">
+                  <value name="outputMessage">
+                     <block type="Text" id="+/on7UR,YraLMDiiqr`l">
+                        <field name="text">Verstanden. Zeitung wird gebracht.</field>
+                     </block>
+                  </value>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

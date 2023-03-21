@@ -1,0 +1,37 @@
+<!-- Created with Liquid Technologies Online Tools 1.0 (https://www.liquid-technologies.com) -->
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="SetAsset" id="Qzae$Fv?LOP*8$gFeMRJ" x="103" y="10">
+    <value name="asset">
+      <block type="Text" id="3g9G00D{HNH}~iv#,U|-" editable="false">
+        <field name="text">ARTI Chasi</field>
+      </block>
+    </value>
+    <next>
+      <block type="SendMessage" id="tE`)A#*_R%gZYoepZc#0">
+        <field name="messageType">OPC-UA</field>
+        <value name="messageContent">
+          <block type="Text" id=":EU4AF#KvVoKv#snQlvo">
+            <field name="text">blöder text</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+  <block type="SetAsset" id="y)V|^o[YP[8_AM4Z?cQ~" x="114" y="110">
+    <value name="asset">
+      <block type="Text" id="#B+fuF[ZH.;!D,:Hy!$0" editable="false">
+        <field name="text">Fitbit Smartwatch</field>
+      </block>
+    </value>
+    <next>
+      <block type="OnMessageReceive" id="|sRv7Vhy]DN`tHZ]5._H">
+        <field name="messageType">OPC-UA</field>
+        <value name="messageContent">
+          <block type="Text" id="4jyzFkXQAcHd3B{9@*i!">
+            <field name="text">blöder text</field>
+          </block>
+        </value>
+      </block>
+    </next>
+  </block>
+</xml>

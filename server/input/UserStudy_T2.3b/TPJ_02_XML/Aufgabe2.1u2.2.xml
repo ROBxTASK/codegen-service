@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id="^Y@~#yL3jIfHJq;2y~GL" x="51" y="54">
+      <value name="asset">
+         <block type="Text" id="%}xbhXtyyMmgv-nk=oJG" editable="false">
+            <field name="text">Camera system</field>
+         </block>
+      </value>
+      <next>
+         <block type="SendMessage" id="^I=W{Dg6f1~9(#wyq;0%">
+            <field name="messageType">OPC-UA</field>
+            <value name="messageContent">
+               <block type="Text" id="Lb%JC!luKsr|;be9@?Nj">
+                  <field name="text">hat was gesehen</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="~1(NjGmS%!wBQ,qqzL2p" x="606" y="63">
+      <value name="asset">
+         <block type="Text" id="((/yD^nKcY~uFtE1$K(V" editable="false">
+            <field name="text">Q.bo One</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="RBx]P]f@+MVCHi-iZuRP">
+            <field name="messageType">MQTT</field>
+            <value name="messageContent">
+               <block type="Text" id="hJ`yS!TOKj;^s:q|RVZa">
+                  <field name="text">Sprachbefehl</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="|Fm7]NIhhh_a~/;iR2Zy" x="47" y="137">
+      <value name="asset">
+         <block type="Text" id="J8L(RgrwC|Qsb$wQr-7W" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="8NjOO0GUmQ@T_eEXg:-s">
+            <field name="messageType">OPC-UA</field>
+            <value name="messageContent">
+               <block type="Text" id="2:+dkrg3e.uv1XFM=~C_">
+                  <field name="text">hat was gesehen</field>
+               </block>
+            </value>
+            <next>
+               <block type="GrabObject" id="cqMb7z@2SyQBVKz%u1sQ">
+                  <value name="objectType">
+                     <block type="Text" id="[QsNqdrQVApF)M}z)CcT">
+                        <field name="text">Löffel</field>
+                     </block>
+                  </value>
+                  <value name="objectPosition">
+                     <block type="Text" id="fL%!(M|XjUX/)keP8~ss">
+                        <field name="text">Boden</field>
+                     </block>
+                  </value>
+                  <next>
+                     <block type="PutObject" id="Pne}dYbh.O2?WS1qq]0?">
+                        <value name="position">
+                           <block type="Text" id="oV__};GR(7Eb$Tp?Oo$)">
+                              <field name="text">Tisch</field>
+                           </block>
+                        </value>
+                     </block>
+                  </next>
+               </block>
+            </next>
+         </block>
+      </next>
+   </block>
+</xml>

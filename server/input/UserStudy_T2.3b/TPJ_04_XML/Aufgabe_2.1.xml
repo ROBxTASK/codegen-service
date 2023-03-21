@@ -1,0 +1,38 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<xml xmlns="https://developers.google.com/blockly/xml">
+   <block type="SetAsset" id=")B/?4%B_?AE{W/;$pOkP" x="280" y="97">
+      <value name="asset">
+         <block type="Text" id="_rqduagCK=@Yv^YPVO(i" editable="false">
+            <field name="text">ARTI Chasi</field>
+         </block>
+      </value>
+      <next>
+         <block type="SendMessage" id="pXuM;t:YFQ=[2^,5orE,">
+            <field name="messageType">OPC-UA</field>
+            <value name="messageContent">
+               <block type="Text" id="bb,F%-QN%LHxD^kWz,W9">
+                  <field name="text">Hallo!</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+   <block type="SetAsset" id="^^B,#xXwhrrp)jd;F:4)" x="279" y="247">
+      <value name="asset">
+         <block type="Text" id="Y;|s(Gih:risB2nnu;lG" editable="false">
+            <field name="text">Franka Panda</field>
+         </block>
+      </value>
+      <next>
+         <block type="OnMessageReceive" id="%xKDNx-:xUURY|G{xvK0">
+            <field name="messageType">OPC-UA</field>
+            <value name="messageContent">
+               <block type="Text" id="-tkUggNHXhz8s~r6;3P^">
+                  <field name="text">Hallo!</field>
+               </block>
+            </value>
+         </block>
+      </next>
+   </block>
+</xml>

@@ -1,0 +1,53 @@
+swagger: "2.0"
+info:
+  description: "API documentation for the CodeGen API."
+  version: "1.0.0"
+  title: "CodeGen Service API"
+  contact:
+    email: "mathias.schmoigl-tonis@salzburgresearch.at"
+    url: "https://github.com/ROBxTASK/codegen-service/issues"
+  license:
+    name: "Apache 2.0"
+    url: "http://www.apache.org/licenses/LICENSE-2.0.html"
+
+host: "localhost:8083"
+
+schemes:
+  - "http"
+
+tags:
+- name: "CodeGen"
+  description: "Connection tester for the CodeGen"
+
+paths:
+  # Connection Tester
+  /codegen/:
+    get:
+      tags:
+        - "CodeGen"
+      summary: "Returns Status"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Status"
+
+definitions:
+    Status:
+        type: "object"
+        properties:
+            status_code:
+                type: "integer"
+                format: "int32"
+            url:
+                type: "string"
+                format: "string"
+            value:
+                type: "string"
+                format: "string"
+
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"

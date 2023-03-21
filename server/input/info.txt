@@ -1,0 +1,22 @@
+The following structure is required at least:
+{
+    "TaskID": "", // Unique ID for the task
+    "TaskName": "", // Short name for the task
+    "TaskDescription": "", // Additional description for the task
+    "TaskOwner": 123, // CompanyID of the uploader (added upon saving from bearer token)
+    "TaskIsPublic": false, // Public/private switch for adding the task to the search
+    "UsedDevices": [ // List of used devices in the task (copy of device model)
+        "DeviceID": "",
+        "DeviceName": "",
+        "Skills": [ // List of used skills by the device in the task
+            "SkillName": "",
+            "SkillVersion": "",
+            "SkillDescription": ""
+        ]
+    ],
+    "BlocklyWorkspace": "", // Blockly workspace encoded XML string
+    "ConfigParams": [ // List of config parameters as key-value pairs for expandability
+        "Key": "",
+        "Value": ""
+    ]
+}
