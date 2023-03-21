@@ -8,6 +8,9 @@ sys.path.append('/app/source')
 import codegen_xml_reader
 import codegen_generator_ros
 import codegen_generator_opcua
+import codegen_xml_reader_dynamic
+import codegen_generator_ros_dynamic
+import codegen_generator_opcua_dynamic
 
 app = Flask(__name__)
 swagger_url = '/codegen/swagger-ui.html'
@@ -26,6 +29,10 @@ app.logger.info("Starting the platform.")
 @app.route("/codegen/")
 def hello():
     return "CodeGen is working."
+	
+@app.route("/codegen_dynamic/")
+def hello_dynamic():
+    return "Dynamic CodeGen is working."
 
 ########################################################
 ################# register swagger ui ##################
@@ -65,6 +72,62 @@ def generate_executable_code(bIsSimulEnv):
 			ros_gen = codegen_generator_opcua.OPCUAGeneratorClass('_client_py', xml_parser.getList())
 			ros_gen.dump_all(outputFileName)
 
+			stream = BytesIO()
+			with ZipFile(stream, 'w') as zf:
+				for file in glob(os.path.join(outputFileName, '*')):
+					zf.write(file, os.path.basename(file))
+			stream.seek(0)
+			return send_file(
+				stream,
+				as_attachment=True,
+				attachment_filename='opcua_agent.zip'
+			)
+			print ("-----------------------------------------------------")
+			print ("Generation of OPCUA agent files succesfull!")
+			print ("-----------------------------------------------------")
+		else:
+			return 'Codegen called with incorrect program argument. [bSimulEnv] is not a boolean!'
+			print('Codegen called with incorrect program argument. [bSimulEnv] is not a boolean!')
+			print('Program execution will stop now...')
+	else:
+		return 'Content-Type not supported!'
+		
+########################################################
+################# register swagger ui ##################
+########################################################
+@app.route(f"/codegen_dynamic/<string:bIsSimulEnv>", methods=['POST', 'PUT'])
+def generate_executable_code_dynamic(bIsSimulEnv):
+	
+	content_type = request.headers.get('Content-Type')
+	if (content_type == 'application/json'):
+		# parse json string input to xml object
+		input = request.json
+		inputXmlString = input['BlocklyWorkspace']
+		xml_parser = codegen_xml_reader_dynamic.XML_BlocklyProject_Parser(inputXmlString)
+		xml_parser.readAssets()
+		outputFileName = 'output/generated_results/'
+		# check if real robot mode or simulated OPCUA mode
+		# creates either ROS action clients for every found asset OR
+		# creates OPCUA agent for every found asset
+		if bIsSimulEnv == 'false':
+			ros_gen = codegen_generator_ros_dynamic.ROSGeneratorClass('_client_py', xml_parser.getList())
+			ros_gen.dump_all(outputFileName)
+			stream = BytesIO()
+			with ZipFile(stream, 'w') as zf:
+				for file in glob(os.path.join(outputFileName, '*')):
+					zf.write(file, os.path.basename(file))
+			stream.seek(0)
+			return send_file(
+				stream,
+				as_attachment=True,
+				attachment_filename='ros_action_client.zip'
+			)
+			print ("-----------------------------------------------------")
+			print ("Generation of ROS action client files succesfull!")
+			print ("-----------------------------------------------------")
+		elif bIsSimulEnv == 'true':
+			ros_gen = codegen_generator_opcua_dynamic.OPCUAGeneratorClass('_client_py', xml_parser.getList())
+			ros_gen.dump_all(outputFileName)
 			stream = BytesIO()
 			with ZipFile(stream, 'w') as zf:
 				for file in glob(os.path.join(outputFileName, '*')):

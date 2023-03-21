@@ -33,6 +33,18 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/Status"
+  /codegen_dynamic/:
+    get:
+      tags:
+        - "CodeGen Dynamic"
+      summary: "Returns Status"
+      produces:
+        - "application/json"
+      responses:
+        "200":
+          description: "OK"
+          schema:
+            $ref: "#/definitions/Status"
 
 definitions:
     Status:
