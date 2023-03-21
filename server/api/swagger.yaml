@@ -33,7 +33,7 @@ paths:
           description: "OK"
           schema:
             $ref: "#/definitions/Status"
-  /codegen_dynamic/:
+  /codegen/dynamic/:
     get:
       tags:
         - "CodeGen Dynamic"

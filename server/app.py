@@ -30,7 +30,7 @@ app.logger.info("Starting the platform.")
 def hello():
     return "CodeGen is working."
 	
-@app.route("/codegen_dynamic/")
+@app.route("/codegen/dynamic/")
 def hello_dynamic():
     return "Dynamic CodeGen is working."
 
@@ -95,7 +95,7 @@ def generate_executable_code(bIsSimulEnv):
 ########################################################
 ################# register swagger ui ##################
 ########################################################
-@app.route(f"/codegen_dynamic/<string:bIsSimulEnv>", methods=['POST', 'PUT'])
+@app.route(f"/codege/dynamic/<string:bIsSimulEnv>", methods=['POST', 'PUT'])
 def generate_executable_code_dynamic(bIsSimulEnv):
 	
 	content_type = request.headers.get('Content-Type')
