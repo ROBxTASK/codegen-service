@@ -106,7 +106,7 @@ class OPCUAGeneratorClass():
 						indent_counter = -1
 
 			if "GetData" in split_list:
-				pass
+				self.getData(assetName,block)
 
 
 			if "logic_operation" not in block.blockName:
