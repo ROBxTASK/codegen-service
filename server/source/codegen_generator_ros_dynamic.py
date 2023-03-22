@@ -130,7 +130,6 @@ class ROSGeneratorClass():
 					compare_condition = "True"
 				if "FALSE" in block.blockSlotValue:
 					compare_condition = "False"
-
 			
 
 			if "controls_if" in block.blockName:

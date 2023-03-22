@@ -91,7 +91,6 @@ class OPCUAGeneratorClass():
 				except:
 					pass
 
-			print("+++++++---------",split_list)
 
 
 			if "STATEMENT_ENDTAG" in block.blockName or block.blockName[0]=="STATEMENT_ENDTAG": ## bug detected trying to fix
@@ -152,6 +151,14 @@ class OPCUAGeneratorClass():
 				self.c.indent()
 				indent_counter += 1
 
+			if "variables_set" in block.blockName:
+				if "GetData" in split_list:
+					self.var_set(GetData_string,block)
+				else:
+					self.var_set(None,block)
+
+
+
 			if count == 0 and "OnMessageReceive" not in block.blockName:
 				self.c.write('async def startRobXTask():\n')
 				self.c.indent()
@@ -202,12 +209,22 @@ class OPCUAGeneratorClass():
 
 
 	def getData(self,assetName,block):
+		global GetData_string
 		if "STATEMENT_ENDTAG" in block.blockSlotValue:
 			block.blockSlotValue.remove("STATEMENT_ENDTAG")
 
 		GetData_string = "await "+assetName+".GetData("+block.blockSlotValue[1]+")"
-		
 
+
+	def var_set(self,to_store,block):
+		if "STATEMENT_ENDTAG" in block.blockSlotValue:
+			block.blockSlotValue.remove("STATEMENT_ENDTAG")
+		
+		if to_store != None:
+			self.c.write(block.blockSlotValue[0]+' = '+to_store+'\n')
+
+		elif to_store == None:
+			self.c.write(block.blockSlotValue[0]+' = '+block.blockSlotValue[1]+'\n')
 
 
 
