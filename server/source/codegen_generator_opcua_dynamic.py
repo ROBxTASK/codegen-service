@@ -213,7 +213,7 @@ class OPCUAGeneratorClass():
 		if "STATEMENT_ENDTAG" in block.blockSlotValue:
 			block.blockSlotValue.remove("STATEMENT_ENDTAG")
 
-		GetData_string = "await "+assetName+".GetData("+block.blockSlotValue[1]+")"
+		GetData_string = "await rxta_"+assetName+".GetData("+block.blockSlotValue[1]+")"
 
 
 	def var_set(self,to_store,block):
