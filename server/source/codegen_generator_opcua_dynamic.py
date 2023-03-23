@@ -141,7 +141,7 @@ class OPCUAGeneratorClass():
 
 			if "controls_whileUntil" in block.blockName:
 				if "GetData" in split_list:
-					pass
+					self.while_getdata_loop(GetData_string,block)
 				else:
 					self.while_loop(compare_condition,block)
 
@@ -321,7 +321,7 @@ class OPCUAGeneratorClass():
 			self.c.write('# request for loop \n')
 			self.c.write('while not '+condition+':\n')
 
-	def while_getdata_loop(self,condition,block):
+	def while_getdata_loop(self,Get_data,block):
 		global GetData_string
 		if "STATEMENT_ENDTAG" in block.blockSlotValue:
 			block.blockSlotValue.remove("STATEMENT_ENDTAG")
@@ -329,7 +329,7 @@ class OPCUAGeneratorClass():
 		if "UNTIL" in block.blockSlotValue:
 			block.blockSlotValue.remove("UNTIL")
 			self.c.write('# request for loop \n')
-			self.c.write('while (not ( '+GetData_string+' == \''+block.blockSlotValue[1]+'\')):\n')
+			self.c.write('while (not ( '+Get_data+' == \''+block.blockSlotValue[1]+'\')):\n')
 
 		
 	def else_if(self,condition):
