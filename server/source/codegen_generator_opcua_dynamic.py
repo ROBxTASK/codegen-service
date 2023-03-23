@@ -67,7 +67,7 @@ class OPCUAGeneratorClass():
 	# dump all blocks of one asset to file
 	#--------------------------------------------
 	def dump_asset(self, filename, assetName, blocks,type_script):
-		global indent_counter, else_repeat,compare_condition
+		global indent_counter, else_repeat,compare_condition, GetData_string
 	
 		# imports and Co
 		self.c = codegen_generator_helper.GeneratorHelper()
@@ -140,7 +140,10 @@ class OPCUAGeneratorClass():
 				self.for_loop(block.blockSlotValue)
 
 			if "controls_whileUntil" in block.blockName:
-				self.while_loop(compare_condition,block)
+				if "GetData" in split_list:
+					pass
+				else:
+					self.while_loop(compare_condition,block)
 
 			if "ELSE_IF" in block.blockName:
 				else_repeat = 0
@@ -154,6 +157,7 @@ class OPCUAGeneratorClass():
 			if "variables_set" in block.blockName:
 				if "GetData" in split_list:
 					self.var_set(GetData_string,block)
+					GetData_string = None
 				else:
 					self.var_set(None,block)
 
@@ -165,7 +169,6 @@ class OPCUAGeneratorClass():
 				indent_counter += 1
 
 			if "OnMessageReceive" in block.blockName:
-				print("====================", indent_counter)
 				if indent_counter > 0:
 					for i in range(indent_counter):
 						self.c.dedent()
@@ -317,6 +320,16 @@ class OPCUAGeneratorClass():
 		elif "UNTIL" in temp_value:
 			self.c.write('# request for loop \n')
 			self.c.write('while not '+condition+':\n')
+
+	def while_getdata_loop(self,condition,block):
+		global GetData_string
+		if "STATEMENT_ENDTAG" in block.blockSlotValue:
+			block.blockSlotValue.remove("STATEMENT_ENDTAG")
+
+		if "UNTIL" in block.blockSlotValue:
+			block.blockSlotValue.remove("UNTIL")
+			self.c.write('# request for loop \n')
+			self.c.write('while (not ( '+GetData_string+' == \''+block.blockSlotValue[1]+'\')):\n')
 
 		
 	def else_if(self,condition):
