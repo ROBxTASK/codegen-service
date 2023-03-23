@@ -140,7 +140,6 @@ class OPCUAGeneratorClass():
 				self.for_loop(block.blockSlotValue)
 
 			if "controls_whileUntil" in block.blockName:
-				self.c.write("testing "+ str(count)+ str(block.blockName)+str(block.blockSlotValue)+str(block.blockSlotName)+'\n')
 				if "GetData" in split_list:
 					self.while_getdata_loop(GetData_string,block)
 				else:
@@ -318,7 +317,7 @@ class OPCUAGeneratorClass():
 		if "WHILE" in temp_value:
 			self.c.write('# request for loop \n')
 			self.c.write('while '+condition+':\n')
-		elif "UNTIL" in temp_value:
+		if "UNTIL" in temp_value:
 			self.c.write('# request for loop \n')
 			self.c.write('while not '+condition+':\n')
 
@@ -329,6 +328,7 @@ class OPCUAGeneratorClass():
 
 		if "UNTIL" in block.blockSlotValue:
 			block.blockSlotValue.remove("UNTIL")
+			block.blockSlotValue.pop(0)
 			self.c.write('# request for loop \n')
 			self.c.write('while (not ( '+Get_data+' == \''+block.blockSlotValue[1]+'\')):\n')
 
