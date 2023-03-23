@@ -140,6 +140,7 @@ class OPCUAGeneratorClass():
 				self.for_loop(block.blockSlotValue)
 
 			if "controls_whileUntil" in block.blockName:
+				self.c.write(str(block)+'\n')
 				if "GetData" in split_list:
 					self.while_getdata_loop(GetData_string,block)
 				else:
