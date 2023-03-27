@@ -139,12 +139,14 @@ class OPCUAGeneratorClass():
 			if "controls_repeat_ext" in block.blockName:
 				self.for_loop(block.blockSlotValue)
 
-			if "controls_whileUntil" in block.blockName:
-				self.c.write(str(split_list)+'\n')
-				if "GetData" in split_list:
-					self.while_getdata_loop(GetData_string,block)
-				else:
-					self.while_loop(compare_condition,block)
+
+			if "controls_whileUntil" in block.blockName and 'GetData' in split_string:
+				self.while_getdata_loop(block)
+				# indent_counter += 1
+
+			elif "controls_whileUntil" in block.blockName and 'GetData' not in split_string:
+				self.while_loop(compare_condition,block)
+				# indent_counter += 1
 
 			if "ELSE_IF" in block.blockName:
 				else_repeat = 0
@@ -192,13 +194,16 @@ class OPCUAGeneratorClass():
 				pass
 
 			split_string = None
+			split_list = None
 
 
 		#stop async
+		for i in range(indent_counter-2):
+			self.c.dedent()
 		self.c.write('await rxtx_helpers.stop()\n\n')
 
 		
-		for i in range(indent_counter):
+		for i in range(indent_counter-1):
 			self.c.dedent()
 		self.c.write('rxtx_helpers.startAsync()\n')
 
@@ -322,16 +327,17 @@ class OPCUAGeneratorClass():
 			self.c.write('# request for loop \n')
 			self.c.write('while not '+condition+':\n')
 
-	def while_getdata_loop(self,Get_data,block):
+	def while_getdata_loop(self,block):
 		global GetData_string
-		if "STATEMENT_ENDTAG" in block.blockSlotValue:
-			block.blockSlotValue.remove("STATEMENT_ENDTAG")
+
+		possible_compare = ["EQ","NEQ","LT","LTE","GT","GTE","WHILE","UNTIL","AND","OR","STATEMENT_ENDTAG"]
+		remaining_var = [x for x in block.blockSlotValue if x not in possible_compare]
 
 		if "UNTIL" in block.blockSlotValue:
 			block.blockSlotValue.remove("UNTIL")
 			block.blockSlotValue.pop(0)
 			self.c.write('# request for loop \n')
-			self.c.write('while (not ( '+Get_data+' == \''+block.blockSlotValue[1]+'\')):\n')
+			self.c.write('while (not ('+remaining_var[0]+' == \''+remaining_var[1]+'\')):\n')
 
 		
 	def else_if(self,condition):
