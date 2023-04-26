@@ -538,11 +538,15 @@ class ROSGeneratorClass():
 		self.c.write('print (\'----------------------------------\')\n')
 		self.c.write('print (\'INVOKING RXT_SKILL: '+ skillName +'\')\n')
 		self.c.write('result = send_ROSActionRequest_WithGoal(\''+ skillName +'\', rxt_skills_' + assetName + '.msg.'+ skillName +'Action, rxt_skills_' + assetName + '.msg.'+ skillName +'Goal('+'messageContent' +'=b\''+ slotValue +'\'))\n')
+		self.c.write('while result != True:\n')
+		self.c.indent()
 		self.c.write('if result:\n')
 		returnName = 'isOK'
 		self.c.indent()
 		self.c.write('print(\"Result was: \" + str(result.'+returnName+'))\n')
+		self.c.write('break\n')
 		self.c.dedent()	
+		self.c.dedent()
 		self.c.write('print (\'----------------------------------\')\n\n')
 
 
